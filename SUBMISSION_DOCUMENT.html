@@ -6,7 +6,17 @@
   @page { size:A4; margin:15mm 14mm; }
   *{ box-sizing:border-box; margin:0; padding:0; }
   body{ font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-        color:#1a2332; line-height:1.5; font-size:10pt; orphans:3; widows:3; }
+        color:#1a2332; line-height:1.55; font-size:10.5pt; orphans:3; widows:3;
+        max-width:190mm; margin:0 auto; padding:16mm 15mm; background:#ffffff;
+        box-shadow:0 0 18px rgba(0,0,0,.10); }
+  html{ background:#e9edf2; }
+
+  /* on paper the @page margin already provides the frame */
+  @media print{
+    html{ background:#ffffff; }
+    body{ max-width:none; margin:0; padding:0; box-shadow:none; font-size:10pt;
+          line-height:1.5; }
+  }
 
   /* ---- one consistent vertical rhythm ---- */
   h2{ font-size:13pt; color:#0F2E4C; letter-spacing:-.2px; font-weight:700;
@@ -359,14 +369,14 @@ for them <em>first</em>. That is distributive justice encoded as engineering.</p
 </div>
 
 <h2><span>11</span>Run it yourself</h2>
-<pre>git clone https://github.com/Siddhantdamre/dhvanishield.git
+<pre>git clone https://github.com/Siddhantdamre/dhvanishield.git   # repo: github.com/Siddhantdamre/dhvanishield
 cd dhvanishield
 pip install -r requirements.txt
 set PYTHONUTF8=1
 
 python tests/run_all.py          # 22 suites - all must pass
 
-uvicorn server:app --port 8000   # then open http://127.0.0.1:8000 for the live interface</pre>
+uvicorn server:app --port 8000   # runs LOCALLY - open http://127.0.0.1:8000 for the live interface</pre>
 <div class="callout">
 <strong>Why this matters.</strong> It is not a better spam filter. It is a second opinion that reaches the
 person who needs it, at the moment they need it, in the language they speak, through the sense they can
