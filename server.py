@@ -29,8 +29,10 @@ import tempfile
 import time
 import uuid
 
+from pathlib import Path
+
 from fastapi import FastAPI, Form, UploadFile, File, Depends, HTTPException, Request
-from fastapi.responses import PlainTextResponse, JSONResponse
+from fastapi.responses import PlainTextResponse, JSONResponse, HTMLResponse
 from pydantic import BaseModel
 
 from shield.datagen import make_dataset
@@ -149,6 +151,17 @@ class FeedbackIn(BaseModel):
 class ReceiptVerifyIn(BaseModel):
     receipt: dict             # a receipt previously issued by /v1/check
     text: str | None = None   # optionally, the original message to match
+
+
+@app.get("/", response_class=HTMLResponse)
+def ui():
+    """Live demo interface. Served from the API itself, so it is same-origin
+    (no CORS) and the whole demo is one command: uvicorn server:app --port 8000
+    then open http://127.0.0.1:8000 ."""
+    page = Path(__file__).resolve().parent / "ui.html"
+    if not page.exists():
+        return "<h1>ui.html not found</h1>"
+    return page.read_text(encoding="utf-8")
 
 
 @app.get("/health")

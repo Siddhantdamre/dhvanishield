@@ -1,0 +1,393 @@
+<meta charset="utf-8">
+<title>DhvaniShield — ET AI Hackathon 2026</title>
+<style>
+  @page { size:A4; margin:14mm 13mm; }
+  *{ box-sizing:border-box; }
+  body{ font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+        color:#1a2332; line-height:1.5; font-size:10pt; margin:0; }
+  h2{ font-size:13pt; margin:20px 0 7px; color:#0F2E4C; letter-spacing:-.2px;
+      page-break-after:avoid; border-bottom:2.5px solid #0F2E4C; padding-bottom:4px; }
+  h2 span{ color:#0E7C86; font-weight:700; margin-right:6px; }
+  h3{ font-size:10.5pt; margin:13px 0 4px; color:#0E7C86; page-break-after:avoid; }
+  p{ margin:6px 0; }
+  ul,ol{ margin:6px 0 10px; padding-left:18px; } li{ margin:4px 0; }
+  table{ border-collapse:collapse; width:100%; margin:8px 0 12px; font-size:9pt;
+         page-break-inside:avoid; }
+  th{ color:#0F2E4C; padding:6px 8px; text-align:left; font-weight:700;
+      border-bottom:2px solid #0F2E4C; border-top:1px solid #0F2E4C; }
+  td{ border-bottom:1px solid #d5dee7; padding:6px 8px; vertical-align:top; }
+  code{ font-family:Consolas,monospace; font-size:8.5pt; color:#0F2E4C;
+        border:1px solid #d5dee7; padding:0 3px; border-radius:2px; }
+  pre{ border:1px solid #b9c6d3; border-left:4px solid #0F2E4C; color:#1a2332;
+       padding:9px 12px; font-family:Consolas,monospace; font-size:8.5pt;
+       white-space:pre-wrap; page-break-inside:avoid; margin:8px 0; }
+  .callout{ border:1px solid #0E7C86; border-left:5px solid #0E7C86; padding:9px 13px;
+            margin:12px 0; page-break-inside:avoid; }
+  .honest{ border:1px solid #C1440E; border-left:5px solid #C1440E; padding:9px 13px;
+           margin:12px 0; page-break-inside:avoid; font-size:9.5pt; }
+  .pb{ page-break-before:always; }
+  .lede{ font-size:10.5pt; color:#37505e; }
+  .two{ display:flex; gap:16px; page-break-inside:avoid; }
+  .two>div{ flex:1; }
+  .cap{ font-size:8pt; color:#7a8796; margin:0 0 10px; font-style:italic; }
+  footer{ margin-top:20px; border-top:1px solid #d5dee7; padding-top:7px;
+          font-size:8pt; color:#7a8796; }
+</style>
+
+<!-- COVER -->
+<svg viewBox="0 0 700 124" style="width:100%;display:block">
+  <rect width="700" height="124" fill="#0F2E4C"/>
+  <rect width="7" height="124" fill="#0E7C86"/>
+  <text x="26" y="45" font-family="Segoe UI,Helvetica,Arial" font-size="30" font-weight="700" fill="#ffffff">DhvaniShield</text>
+  <text x="26" y="68" font-family="Segoe UI,Helvetica,Arial" font-size="11.5" fill="#9fc4d8">An on-device manipulation-defence layer for scam calls and messages</text>
+  <text x="26" y="90" font-family="Segoe UI,Helvetica,Arial" font-size="10.5" fill="#e8f0f7">Caller-ID tools match the number. DhvaniShield reads the <tspan font-weight="700" fill="#7fd4dd">technique</tspan>.</text>
+  <text x="26" y="110" font-family="Segoe UI,Helvetica,Arial" font-size="8.5" fill="#7a9bb5">ET AI Hackathon 2026  |  Problem Statement 6: AI for Digital Public Safety  |  Siddhant Damre  |  solo build</text>
+</svg>
+
+<!-- STAT TILES -->
+<svg viewBox="0 0 700 74" style="width:100%;display:block;margin:8px 0 4px">
+  <g font-family="Segoe UI,Helvetica,Arial">
+    <rect x="0" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
+    <text x="84" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">0.02%</text>
+    <text x="84" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">false alarm</text>
+    <text x="84" y="61" font-size="7.5" fill="#5b6b7c" text-anchor="middle">on 4,827 real messages</text>
+
+    <rect x="177" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
+    <text x="261" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">98.8%</text>
+    <text x="261" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">accuracy</text>
+    <text x="261" y="61" font-size="7.5" fill="#5b6b7c" text-anchor="middle">real held-out data</text>
+
+    <rect x="354" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
+    <text x="438" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">6</text>
+    <text x="438" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">languages</text>
+    <text x="438" y="61" font-size="7.5" fill="#5b6b7c" text-anchor="middle">zero missed scams</text>
+
+    <rect x="531" y="0" width="169" height="74" rx="5" fill="#0F2E4C"/>
+    <text x="615" y="32" font-size="22" font-weight="700" fill="#7fd4dd" text-anchor="middle">22/22</text>
+    <text x="615" y="48" font-size="8.5" font-weight="600" fill="#ffffff" text-anchor="middle">test suites passing</text>
+    <text x="615" y="61" font-size="7.5" fill="#9fc4d8" text-anchor="middle">every claim reproducible</text>
+  </g>
+</svg>
+
+<h2><span>01</span>The problem</h2>
+<p class="lede">A caller posing as CBI, customs or police manufactures a fake case, isolates the victim
+("don't tell anyone, don't hang up"), and over 30&ndash;60 minutes coerces a transfer of life savings.
+It is a government-flagged, national-scale problem in India.</p>
+<table>
+<tr><th style="width:30%">Why existing defences fail</th><th>What actually happens</th></tr>
+<tr><td><strong>The number is disposable</strong></td><td>Fresh SIMs, spoofed IDs, WhatsApp calls. By the time a number is blacklisted it has been discarded &mdash; number-reputation is always one step behind.</td></tr>
+<tr><td><strong>The victim authorises the payment</strong></td><td>To a bank's fraud engine the transfer looks perfectly legitimate. The fraud signal lives in a conversation the bank cannot see.</td></tr>
+<tr><td><strong>The victims are the least-served users</strong></td><td>Elderly, non-English-speaking, low-literacy and disabled people &mdash; exactly who English-first, app-fluent tools fail.</td></tr>
+</table>
+
+<h2><span>02</span>Where it intervenes</h2>
+<p>Scams follow a stable coercion grammar. DhvaniShield tracks that arc and fires
+<strong>before money moves</strong> &mdash; not after.</p>
+<svg viewBox="0 0 700 104" style="width:100%;display:block;margin:4px 0">
+  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+    <line x1="45" y1="46" x2="655" y2="46" stroke="#c8d4e0" stroke-width="2.5"/>
+    <g text-anchor="middle">
+      <circle cx="45"  cy="46" r="8" fill="#0F2E4C"/><text x="45"  y="72" fill="#1a2332" font-weight="600">Authority</text><text x="45"  y="84" font-size="7.5" fill="#7a8796">"I am from CBI"</text>
+      <circle cx="167" cy="46" r="8" fill="#0F2E4C"/><text x="167" y="72" fill="#1a2332" font-weight="600">Accusation</text><text x="167" y="84" font-size="7.5" fill="#7a8796">"a case is filed"</text>
+      <circle cx="289" cy="46" r="8" fill="#1d5f7a"/><text x="289" y="72" fill="#1a2332" font-weight="600">Isolation</text><text x="289" y="84" font-size="7.5" fill="#7a8796">"tell no one"</text>
+      <circle cx="411" cy="46" r="8" fill="#0E7C86"/><text x="411" y="72" fill="#1a2332" font-weight="600">Urgency</text><text x="411" y="84" font-size="7.5" fill="#7a8796">"act now"</text>
+      <circle cx="533" cy="46" r="11" fill="#C1440E"/><text x="533" y="74" fill="#C1440E" font-weight="700">MONEY</text><text x="533" y="86" font-size="7.5" fill="#7a8796">irreversible</text>
+      <circle cx="655" cy="46" r="8" fill="#8a1c1c"/><text x="655" y="72" fill="#1a2332" font-weight="600">Access</text><text x="655" y="84" font-size="7.5" fill="#7a8796">OTP / screen</text>
+    </g>
+    <rect x="330" y="6" width="163" height="20" rx="10" fill="#0E7C86"/>
+    <text x="411" y="20" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle">ALERT FIRES HERE</text>
+    <path d="M411 26 L411 34" stroke="#0E7C86" stroke-width="2"/>
+    <path d="M407 31 L411 38 L415 31 Z" fill="#0E7C86"/>
+    <text x="600" y="20" font-size="8" fill="#C1440E" font-style="italic" text-anchor="middle">too late</text>
+  </g>
+</svg>
+
+<h2><span>03</span>Architecture</h2>
+<svg viewBox="0 0 700 258" style="width:100%;display:block;margin:4px 0">
+  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+    <rect x="240" y="0" width="220" height="24" rx="4" fill="#ffffff" stroke="#8a99a8"/>
+    <text x="350" y="16" text-anchor="middle" fill="#1a2332">call transcript / forwarded message</text>
+    <path d="M350 24 L350 38" stroke="#7a8796" stroke-width="1.5"/>
+
+    <rect x="10" y="38" width="330" height="112" rx="5" fill="#ffffff" stroke="#0F2E4C" stroke-width="1.3"/>
+    <text x="24" y="54" font-weight="700" fill="#0F2E4C">DETECTION COMMITTEE</text>
+    <g fill="#37505e">
+      <rect x="24" y="61" width="145" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="31" y="73">L1 lexical registry (6 langs)</text>
+      <rect x="24" y="83" width="145" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="31" y="95">L2 char n-gram model</text>
+      <rect x="24" y="105" width="145" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="31" y="117">L2 semantic exemplars</text>
+      <rect x="177" y="61" width="153" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="184" y="73">L3 coercion trajectory</text>
+      <rect x="177" y="83" width="153" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="184" y="95">real-data message expert</text>
+      <rect x="177" y="105" width="153" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="184" y="117">calibration / defer-to-human</text>
+    </g>
+    <text x="24" y="140" font-size="7.5" fill="#7a8796" font-style="italic">every verdict traceable to matched words</text>
+
+    <rect x="360" y="38" width="330" height="112" rx="5" fill="#ffffff" stroke="#0E7C86" stroke-width="1.3"/>
+    <text x="374" y="54" font-weight="700" fill="#0E7C86">MANIPULATION ENGINE</text>
+    <text x="374" y="72" fill="#37505e">9 influence strategies (Cialdini + coercion levers):</text>
+    <g fill="#37505e" font-size="8">
+      <text x="374" y="88">authority - scarcity - social proof - reciprocity</text>
+      <text x="374" y="102">commitment - liking - fear - isolation - override</text>
+    </g>
+    <text x="374" y="122" font-size="8" font-weight="600" fill="#0E7C86">detects the tactic, not the vocabulary</text>
+    <text x="374" y="140" font-size="7.5" fill="#7a8796" font-style="italic">generalises to scams it has never seen</text>
+
+    <path d="M175 150 L175 168" stroke="#7a8796" stroke-width="1.5"/>
+    <path d="M525 150 L525 168" stroke="#7a8796" stroke-width="1.5"/>
+
+    <rect x="130" y="168" width="440" height="28" rx="5" fill="#0F2E4C"/>
+    <text x="350" y="186" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="9.5">ESCALATE-ONLY SAFETY GATE  -  may only RAISE, never clear</text>
+    <path d="M350 196 L350 210" stroke="#7a8796" stroke-width="1.5"/>
+
+    <g font-size="8">
+      <rect x="10"  y="210" width="163" height="40" rx="4" fill="#ffffff" stroke="#0E7C86"/>
+      <text x="91"  y="228" text-anchor="middle" fill="#0F2E4C" font-weight="700">scam category</text>
+      <text x="91"  y="241" text-anchor="middle" fill="#7a8796">+ tailored advice</text>
+      <rect x="182" y="210" width="163" height="40" rx="4" fill="#ffffff" stroke="#0E7C86"/>
+      <text x="263" y="228" text-anchor="middle" fill="#0F2E4C" font-weight="700">accessibility</text>
+      <text x="263" y="241" text-anchor="middle" fill="#7a8796">6 disability profiles</text>
+      <rect x="354" y="210" width="163" height="40" rx="4" fill="#ffffff" stroke="#0E7C86"/>
+      <text x="435" y="228" text-anchor="middle" fill="#0F2E4C" font-weight="700">duty-of-care receipt</text>
+      <text x="435" y="241" text-anchor="middle" fill="#7a8796">signed, content-free</text>
+      <rect x="526" y="210" width="164" height="40" rx="4" fill="#ffffff" stroke="#0E7C86"/>
+      <text x="608" y="228" text-anchor="middle" fill="#0F2E4C" font-weight="700">verdict + explanation</text>
+      <text x="608" y="241" text-anchor="middle" fill="#7a8796">never says "safe"</text>
+    </g>
+  </g>
+</svg>
+
+<div class="callout">
+<strong>The safety invariant.</strong> There is no <code>SAFE</code> class. The output space is
+<code>HIGH_RISK / UNCERTAIN / NO_PATTERN</code>, and learned layers may only <em>escalate</em> &mdash; so
+no model error can ever produce a false "you're safe". A false alarm costs one verification call; a false
+reassurance costs a life's savings. The asymmetry is built into the architecture.
+</div>
+
+<h2 class="pb"><span>04</span>The Manipulation Meter</h2>
+<p>Instead of a black-box score, the user sees <em>what is being done to them</em>. Real output for:
+<em>"This is CBI, a case is filed, do not tell anyone, transfer money now."</em></p>
+<svg viewBox="0 0 700 172" style="width:100%;display:block;margin:6px 0">
+  <g font-family="Segoe UI,Helvetica,Arial" font-size="9">
+    <rect x="0" y="0" width="430" height="172" rx="5" fill="#ffffff" stroke="#b9c6d3"/>
+    <g fill="#37505e">
+      <text x="14" y="26">Authority</text>
+      <rect x="112" y="16" width="300" height="13" rx="3" fill="#eef2f6" stroke="#d5dee7"/><rect x="112" y="16" width="240" height="13" rx="3" fill="#0F2E4C"/>
+      <text x="14" y="52">Accusation</text>
+      <rect x="112" y="42" width="300" height="13" rx="3" fill="#eef2f6" stroke="#d5dee7"/><rect x="112" y="42" width="270" height="13" rx="3" fill="#0F2E4C"/>
+      <text x="14" y="78">Isolation</text>
+      <rect x="112" y="68" width="300" height="13" rx="3" fill="#eef2f6" stroke="#d5dee7"/><rect x="112" y="68" width="300" height="13" rx="3" fill="#C1440E"/>
+      <text x="14" y="104">Urgency</text>
+      <rect x="112" y="94" width="300" height="13" rx="3" fill="#eef2f6" stroke="#d5dee7"/><rect x="112" y="94" width="210" height="13" rx="3" fill="#0E7C86"/>
+      <text x="14" y="130">Financial pull</text>
+      <rect x="112" y="120" width="300" height="13" rx="3" fill="#eef2f6" stroke="#d5dee7"/><rect x="112" y="120" width="285" height="13" rx="3" fill="#C1440E"/>
+      <text x="14" y="156">Access grab</text>
+      <rect x="112" y="146" width="300" height="13" rx="3" fill="#eef2f6" stroke="#d5dee7"/><rect x="112" y="146" width="90" height="13" rx="3" fill="#0E7C86"/>
+    </g>
+    <rect x="446" y="0" width="254" height="172" rx="5" fill="#ffffff" stroke="#C1440E" stroke-width="1.4"/>
+    <rect x="446" y="0" width="254" height="30" rx="5" fill="#C1440E"/>
+    <text x="462" y="20" font-size="12" font-weight="700" fill="#ffffff">STOP - DANGER</text>
+    <text x="462" y="50" font-size="9.5" font-weight="700" fill="#1a2332">Digital arrest / fake police</text>
+    <g font-size="8.5" fill="#37505e">
+      <text x="462" y="70">Hang up now. No police arrests</text>
+      <text x="462" y="84">you by call. Never transfer money</text>
+      <text x="462" y="98">to "clear a case". Call 1930.</text>
+    </g>
+    <line x1="462" y1="110" x2="686" y2="110" stroke="#e8c4b0"/>
+    <g font-size="8" fill="#5b6b7c">
+      <text x="462" y="126">Spoken script for blind users</text>
+      <text x="462" y="139">Haptic: long-long-long (deaf)</text>
+      <text x="462" y="152">One tap: call someone you trust</text>
+      <text x="462" y="165">Shape + word, never colour alone</text>
+    </g>
+  </g>
+</svg>
+
+<h2><span>05</span>Results &mdash; every number reproducible</h2>
+<svg viewBox="0 0 700 168" style="width:100%;display:block;margin:4px 0">
+  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+    <text x="0" y="12" font-size="9.5" font-weight="700" fill="#0F2E4C">Detection performance across independent test sets</text>
+    <line x1="185" y1="24" x2="185" y2="150" stroke="#8a99a8"/>
+    <g fill="#37505e">
+      <text x="178" y="41" text-anchor="end">Out-of-distribution recall</text>
+      <rect x="185" y="30" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="30" width="470" height="15" rx="2" fill="#0E7C86"/>
+      <text x="662" y="41" font-weight="700" fill="#0E7C86">100%</text>
+
+      <text x="178" y="70" text-anchor="end">Real held-out accuracy</text>
+      <rect x="185" y="59" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="59" width="464" height="15" rx="2" fill="#0E7C86"/>
+      <text x="662" y="70" font-weight="700" fill="#0E7C86">98.8%</text>
+
+      <text x="178" y="99" text-anchor="end">Red-team recall (evasion)</text>
+      <rect x="185" y="88" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="88" width="441" height="15" rx="2" fill="#0F2E4C"/>
+      <text x="662" y="99" font-weight="700" fill="#0F2E4C">93.8%</text>
+
+      <text x="178" y="128" text-anchor="end">False alarm (lower is better)</text>
+      <rect x="185" y="117" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="117" width="3" height="15" rx="1.5" fill="#C1440E"/>
+      <text x="662" y="128" font-weight="700" fill="#C1440E">0.02%</text>
+    </g>
+    <text x="185" y="162" font-size="7.5" fill="#7a8796">Bars scaled 0-100%. False alarm measured on 4,827 real legitimate messages.</text>
+  </g>
+</svg>
+
+<svg viewBox="0 0 700 196" style="width:100%;display:block;margin:10px 0 2px">
+  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+    <text x="0" y="12" font-size="9.5" font-weight="700" fill="#0F2E4C">Risk-coverage curve: the model knows when to defer to a human</text>
+    <line x1="60" y1="30" x2="60" y2="150" stroke="#8a99a8"/>
+    <line x1="60" y1="150" x2="670" y2="150" stroke="#8a99a8"/>
+    <g fill="#7a8796" font-size="7.5">
+      <text x="55" y="153" text-anchor="end">0%</text>
+      <text x="55" y="115" text-anchor="end">0.5%</text>
+      <text x="55" y="80" text-anchor="end">1.0%</text>
+      <text x="55" y="45" text-anchor="end">1.5%</text>
+      <text x="60" y="164" text-anchor="middle">50%</text>
+      <text x="365" y="164" text-anchor="middle">75%</text>
+      <text x="548" y="164" text-anchor="middle">90%</text>
+      <text x="670" y="164" text-anchor="middle">100%</text>
+      <text x="365" y="180" text-anchor="middle" font-size="8" fill="#37505e">fraction of cases the model answers (coverage)</text>
+    </g>
+    <text x="14" y="95" font-size="8" fill="#37505e" transform="rotate(-90 14 95)" text-anchor="middle">error rate</text>
+    <polyline points="60,150 365,142 548,143 670,25" fill="none" stroke="#0E7C86" stroke-width="2.5"/>
+    <g fill="#0E7C86">
+      <circle cx="60" cy="150" r="4"/><circle cx="365" cy="142" r="4"/><circle cx="548" cy="143" r="4"/>
+      <circle cx="670" cy="25" r="5" fill="#C1440E"/>
+    </g>
+    <text x="560" y="132" font-size="8" font-weight="700" fill="#0E7C86">0.10% error</text>
+    <text x="612" y="18" font-size="8" font-weight="700" fill="#C1440E">1.79% error</text>
+    <rect x="150" y="40" width="230" height="34" rx="4" fill="#ffffff" stroke="#0E7C86"/>
+    <text x="162" y="54" font-size="8" fill="#1a2332">Deferring the hardest <tspan font-weight="700">2%</tspan> to a human</text>
+    <text x="162" y="67" font-size="8" fill="#1a2332">holds error at <tspan font-weight="700" fill="#0E7C86">under 1%</tspan>.</text>
+  </g>
+</svg>
+<p class="cap">Measured on real held-out data. Error collapses once the model is allowed to abstain on its
+least-confident cases &mdash; the basis of the defer-to-human guarantee.</p>
+
+<table>
+<tr><th style="width:42%">Metric</th><th style="width:26%">Result</th><th>Evidence base</th></tr>
+<tr><td>False alarm on legitimate messages</td><td><strong>0.02%</strong> (1 in 4,827)</td><td>4,827 <em>real</em> messages</td></tr>
+<tr><td>Held-out message accuracy</td><td><strong>98.8%</strong></td><td>1,115 <em>real</em> held-out</td></tr>
+<tr><td>Calibration error (ECE)</td><td><strong>0.036</strong></td><td>Platt-calibrated, real data</td></tr>
+<tr><td>Selective guarantee</td><td><strong>&#8804;1% error, deferring 2%</strong></td><td>defer-to-human operating point</td></tr>
+<tr><td>Out-of-distribution scam recall</td><td><strong>100%</strong>, false reassurance <strong>0</strong></td><td>independent adversarial set</td></tr>
+<tr><td>Red-team (evasion, unseen families)</td><td>recall <strong>93.8%</strong>, false accusation <strong>0</strong></td><td>obfuscation, code-mix, novel scams</td></tr>
+<tr><td>Languages with zero false reassurance</td><td><strong>6</strong> (En, Hi, Mr, Ta, Te, Bn)</td><td>multilingual gate</td></tr>
+<tr><td>Latency / throughput</td><td><strong>13 ms</strong> / <strong>143 req/s</strong></td><td>single CPU node, load-tested</td></tr>
+</table>
+
+<div class="honest">
+<strong>Reported honestly.</strong> The manipulation engine scores <strong>AUC 0.66 on real data</strong>
+versus 0.94 on a hand-authored probe &mdash; the gap is disclosed, not hidden, because self-written probes
+overstate performance and 0.66 is the number we defend. The system is validated on real <em>messages</em>,
+not live <em>phone calls</em>; that needs a field pilot, stated as the next step rather than implied as done.
+</div>
+
+<h2 class="pb"><span>06</span>What makes it different</h2>
+<table>
+<tr><th style="width:24%">Axis</th><th style="width:36%">Caller-ID tools (Truecaller etc.)</th><th>DhvaniShield</th></tr>
+<tr><td><strong>What it reads</strong></td><td>the phone number's reputation</td><td>the manipulation technique in the words</td></tr>
+<tr><td><strong>Fails when</strong></td><td>number is fresh, spoofed or "official"</td><td>&mdash; the coercion grammar is invariant</td></tr>
+<tr><td><strong>Output</strong></td><td>block / "spam" label</td><td>explains <em>how</em> you are being manipulated, and what to do</td></tr>
+<tr><td><strong>Users served</strong></td><td>app-fluent, English-first</td><td>elderly, vernacular, blind, deaf, low-literacy</td></tr>
+<tr><td><strong>Data model</strong></td><td>uploads your contact book</td><td>on-device; nothing leaves the phone</td></tr>
+<tr><td><strong>Can it say "safe"?</strong></td><td>yes &mdash; and that is the dangerous error</td><td>structurally impossible</td></tr>
+</table>
+
+<h2><span>07</span>Built for the people scammers actually target</h2>
+<p>Most scam tools assume a sighted, literate, English-reading, app-fluent user &mdash; the exact person
+scammers avoid. Six accessibility profiles, each enforced as a test:</p>
+<table>
+<tr><th style="width:22%">Profile</th><th>How the single alert is delivered</th></tr>
+<tr><td><strong>Blind / low-vision</strong></td><td>spoken script (short sentences, action repeated) plus a distinct audio earcon &mdash; no visual dependency</td></tr>
+<tr><td><strong>Deaf / hard-of-hearing</strong></td><td>pictogram card plus a distinct haptic vibration pattern &mdash; no audio dependency</td></tr>
+<tr><td><strong>Colour-blind</strong></td><td>meaning carried by shape + word ("STOP"), never colour alone</td></tr>
+<tr><td><strong>Low-literacy</strong></td><td>scam icon plus a grade-1 easy-read line</td></tr>
+<tr><td><strong>Cognitive / elderly</strong></td><td>one step only, the family code word, and one tap to a trusted person</td></tr>
+</table>
+<div class="callout">
+<strong>The family code word.</strong> A household agrees one secret word; any caller claiming to be family
+must produce it. It costs nothing, needs no technology, and defeats even AI voice cloning &mdash; which no
+detector can reliably do.
+</div>
+
+<h2><span>08</span>Privacy, security and compliance</h2>
+<div class="two">
+<div>
+<h3>Privacy by architecture</h3>
+<ul>
+<li>No database, no data at rest. Content processed and deleted within the request.</li>
+<li>Telemetry and receipts store labels and hashes only &mdash; never text.</li>
+<li>On-device inference: no cloud AI call; nothing leaves the phone.</li>
+<li>DPDP Act 2023 obligations satisfied largely by construction.</li>
+</ul>
+</div>
+<div>
+<h3>Enterprise controls (tested)</h3>
+<ul>
+<li>Multi-key per-tenant auth with zero-downtime rotation.</li>
+<li>Twilio webhook signature validation; Redis-backed rate limiting.</li>
+<li>Size caps, security headers, dependency scanning in CI.</li>
+<li>Startup audit refuses to run silently insecure.</li>
+</ul>
+</div>
+</div>
+<p><strong>Duty-of-care receipt.</strong> Every assessment issues a signed, content-free receipt proving a
+specific message was assessed and the user warned &mdash; storing only a keyed hash. For an institution
+under pressure to reimburse scam losses, this turns a detector into a compliance asset with zero new
+privacy liability.</p>
+
+<h2><span>09</span>Impact and SDG alignment</h2>
+<table>
+<tr><th style="width:30%">SDG</th><th>Mechanism of impact</th></tr>
+<tr><td><strong>16</strong> Peace, Justice &amp; Strong Institutions (16.4)</td><td>Interrupting scams at the moment of coercion cuts funds flowing to organised criminal networks.</td></tr>
+<tr><td><strong>10</strong> Reduced Inequalities (10.2)</td><td>Vernacular plus six accessibility profiles: protection reaches those normally excluded by design.</td></tr>
+<tr><td><strong>3</strong> Good Health &amp; Well-being (3.4)</td><td>Preventing victimisation avoids the documented trauma and depression that follow a scam.</td></tr>
+<tr><td><strong>1</strong> No Poverty (1.4)</td><td>A single prevented scam can be the difference between security and destitution for a retired household.</td></tr>
+</table>
+<p><strong>The equity core:</strong> the most-targeted are the most-vulnerable, so the system is designed
+for them <em>first</em>. That is distributive justice encoded as engineering.</p>
+
+<h2><span>10</span>Limitations and roadmap</h2>
+<div class="two">
+<div>
+<h3>Stated, not hidden</h3>
+<ul>
+<li>Validated on real <strong>messages</strong>; live <strong>call</strong> validation needs a consented pilot.</li>
+<li>Manipulation engine is a research direction at AUC 0.66 on real data.</li>
+<li>Roughly a quarter of genuinely ambiguous authority calls get "verify independently" &mdash; deliberate abstention, since a real and a fake police call are textually identical.</li>
+<li>Calibration under distribution shift and compositional reasoning remain open problems.</li>
+</ul>
+</div>
+<div>
+<h3>Roadmap</h3>
+<ol>
+<li><strong>Pull-based pilot</strong> &mdash; a WhatsApp number people forward to. Zero install, zero call access. Deployable today.</li>
+<li><strong>Close the data flywheel</strong> &mdash; consented labels build a proprietary real-scam corpus; accuracy compounds with use.</li>
+<li><strong>On-device call screening</strong> &mdash; safe only <em>because</em> the collect-nothing foundation exists first.</li>
+<li><strong>Institutional deployment</strong> &mdash; bank / telco / helpline, gated on third-party security and DPDP audit.</li>
+</ol>
+</div>
+</div>
+
+<h2><span>11</span>Run it yourself</h2>
+<pre>git clone &lt;repository-url&gt;
+cd dhvanishield_v6_deploy_1
+pip install -r requirements.txt
+set PYTHONUTF8=1
+
+python tests/run_all.py          # 22 suites - all must pass
+
+python check.py "This is CBI, you are under digital arrest, transfer money now"
+python check.py --ambient "Hi, your delivery is scheduled for Friday"        # stays silent
+python check.py --ambient --profile=blind "This is CBI, transfer money now"  # accessibility
+
+uvicorn server:app --port 8000   # /v1/check  /v1/screen  /v1/analyze  /v1/manipulation</pre>
+
+<div class="callout">
+<strong>Why this matters.</strong> It is not a better spam filter. It is a second opinion that reaches the
+person who needs it, at the moment they need it, in the language they speak, through the sense they can
+perceive &mdash; and it is built so it can never be the thing that tells a victim a scam was safe.
+</div>
+
+<footer>
+DhvaniShield &middot; ET AI Hackathon 2026 &middot; Problem Statement 6 &middot; all results reproducible via
+<code>python tests/run_all.py</code><br>
+Repository docs: ARCHITECTURE.md &middot; MODEL_CARD.md &middot; SECURITY.md &middot; PRIVACY.md &middot;
+THREAT_MODEL.md &middot; IMPACT.md &middot; RESEARCH_MANIPULATION.md
+</footer>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DhvaniShield — live demo</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#070d16; --panel:#0e1826; --panel2:#131f30; --line:#1e2d42;
+    --ink:#e8f0f8; --dim:#8ba2bd; --teal:#2dd4bf; --tealdim:#0f766e;
+    --red:#f87171; --amber:#fbbf24; --green:#34d399;
+  }
+  body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+       background:radial-gradient(1200px 600px at 50% -10%,#12263d 0%,var(--bg) 60%);
+       color:var(--ink);min-height:100vh;padding:22px 16px 60px}
+  .wrap{max-width:1080px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .logo{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--tealdim));
+        display:grid;place-items:center;font-size:21px;flex:0 0 42px;box-shadow:0 0 24px rgba(45,212,191,.35)}
+  h1{font-size:25px;letter-spacing:-.5px;font-weight:700}
+  .tag{color:var(--dim);font-size:13.5px;margin-top:2px}
+  .tag b{color:var(--teal);font-weight:600}
+  .badges{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 18px}
+  .badge{font-size:11px;color:var(--dim);border:1px solid var(--line);background:var(--panel);
+         padding:4px 10px;border-radius:20px}
+  .badge b{color:var(--teal)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}
+  .card h3{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);
+           font-weight:600;margin-bottom:11px}
+  textarea{width:100%;min-height:104px;background:var(--panel2);color:var(--ink);
+           border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;
+           font-family:inherit;resize:vertical;line-height:1.5}
+  textarea:focus{outline:none;border-color:var(--teal)}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0}
+  .chip{font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--dim);
+        padding:6px 11px;border-radius:8px;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--teal);color:var(--ink);transform:translateY(-1px)}
+  .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+         border-radius:8px;padding:9px 11px;font-size:13px;font-family:inherit}
+  button{background:linear-gradient(135deg,var(--teal),var(--tealdim));color:#04121a;border:0;
+         border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;
+         font-family:inherit;transition:.15s}
+  button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+  button:disabled{opacity:.5;cursor:wait;transform:none}
+  .verdict{border-radius:12px;padding:15px 17px;margin-bottom:13px;border:1px solid;
+           display:flex;gap:13px;align-items:flex-start;animation:pop .3s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+  .vicon{font-size:26px;line-height:1}
+  .vtitle{font-size:17px;font-weight:700;margin-bottom:3px}
+  .vsub{font-size:13px;opacity:.9;line-height:1.45}
+  .v-red{background:rgba(248,113,113,.11);border-color:var(--red);color:var(--red)}
+  .v-amber{background:rgba(251,191,36,.11);border-color:var(--amber);color:var(--amber)}
+  .v-green{background:rgba(52,211,153,.11);border-color:var(--green);color:var(--green)}
+  .meter{margin:4px 0}
+  .mrow{display:flex;align-items:center;gap:11px;margin:7px 0;font-size:12.5px}
+  .mlabel{width:104px;color:var(--dim);flex:0 0 104px}
+  .mtrack{flex:1;height:11px;background:var(--panel2);border-radius:6px;overflow:hidden;
+          border:1px solid var(--line)}
+  .mfill{height:100%;border-radius:6px;width:0;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+  .mval{width:34px;text-align:right;color:var(--dim);font-variant-numeric:tabular-nums}
+  .kv{font-size:12.5px;color:var(--dim);line-height:1.75}
+  .kv b{color:var(--ink);font-weight:600}
+  .pill{display:inline-block;font-size:11px;padding:3px 9px;border-radius:6px;
+        background:var(--panel2);border:1px solid var(--line);color:var(--teal);margin-right:5px}
+  .advice{background:var(--panel2);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;
+          padding:11px 13px;font-size:13.5px;line-height:1.55;margin-top:9px}
+  .exp{font-size:12px;color:var(--dim);line-height:1.65;margin-top:9px}
+  .exp li{margin:5px 0 5px 15px}
+  .a11y{background:var(--panel2);border:1px solid var(--line);border-radius:10px;
+        padding:12px;font-size:12.5px;line-height:1.7;margin-top:10px}
+  .a11y .lbl{color:var(--teal);font-weight:600;font-size:11px;letter-spacing:.6px;
+             text-transform:uppercase}
+  .mono{font-family:Consolas,monospace;font-size:11px;color:var(--dim);word-break:break-all}
+  .empty{color:var(--dim);font-size:13.5px;text-align:center;padding:34px 12px;line-height:1.6}
+  footer{text-align:center;color:var(--dim);font-size:11.5px;margin-top:26px;line-height:1.7}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="logo">🛡</div>
+    <div>
+      <h1>DhvaniShield</h1>
+      <div class="tag">Caller-ID tools match the <i>number</i>. This reads the <b>technique</b>.</div>
+    </div>
+  </header>
+
+  <div class="badges">
+    <span class="badge">on-device &middot; <b>nothing leaves your phone</b></span>
+    <span class="badge"><b>6</b> languages</span>
+    <span class="badge"><b>0.02%</b> false alarm on 4,827 real messages</span>
+    <span class="badge">it can <b>never</b> say "safe"</span>
+    <span class="badge"><b>22/22</b> tests passing</span>
+  </div>
+
+  <div class="grid">
+    <!-- INPUT -->
+    <div class="card">
+      <h3>Paste what the caller said</h3>
+      <textarea id="txt" placeholder="e.g. This is CBI, a case is registered against you, do not tell anyone, transfer money to the safe account..."></textarea>
+      <div class="chips" id="chips"></div>
+      <div class="row">
+        <select id="profile">
+          <option value="default">Standard view</option>
+          <option value="blind">Blind / low-vision</option>
+          <option value="deaf">Deaf / hard-of-hearing</option>
+          <option value="low_literacy">Low-literacy</option>
+          <option value="cognitive">Cognitive / elderly</option>
+          <option value="colorblind">Colour-blind safe</option>
+        </select>
+        <button id="go">Analyse</button>
+      </div>
+      <div class="exp" style="margin-top:12px">
+        Try a scam, then a normal message. Notice it explains <i>how</i> you're being
+        manipulated &mdash; and never tells you a call is safe.
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="card">
+      <h3>Result</h3>
+      <div id="out"><div class="empty">Pick an example or paste a message,<br>then press <b>Analyse</b>.</div></div>
+    </div>
+  </div>
+
+  <!-- METER -->
+  <div class="card" style="margin-top:16px">
+    <h3>Manipulation Meter &mdash; what is being done to you</h3>
+    <div class="meter" id="meter"></div>
+    <div class="exp">Six coercion levers scored independently. A real institution triggers one;
+      a scam stacks several &mdash; that pattern is what the system detects.</div>
+  </div>
+
+  <footer>
+    DhvaniShield &middot; ET AI Hackathon 2026 &middot; Problem Statement 6<br>
+    Runs fully on-device &middot; process-and-delete &middot; every verdict traceable
+  </footer>
+</div>
+
+<script>
+const EX = [
+  ["🚨 Digital arrest", "This is CBI, a case is registered against your Aadhaar. Do not tell anyone, stay on the line, and transfer the money to the safe account for verification."],
+  ["🏦 KYC phishing", "Your account will be blocked today. Update your KYC now and share your card number, CVV and the OTP on this link."],
+  ["📹 Sextortion", "I recorded you on the video call last night. Pay ten thousand within one hour or I send it to all your contacts."],
+  ["🌐 Tamil scam", "நான் சிபிஐ யிலிருந்து பேசுகிறேன், உங்கள் பெயரில் வழக்கு உள்ளது, யாரிடமும் சொல்லாதீர்கள், பணத்தை மாற்றுங்கள்"],
+  ["✅ Normal delivery", "Hi, your furniture delivery is scheduled for Friday between 10 and 12."],
+  ["✅ Real bank call", "We blocked a suspicious transaction on your card. We will never ask for your PIN or OTP. Please call the number on the back of your card."],
+];
+const METERS = ["Authority","Accusation","Isolation","Urgency","Financial pull","Access grab"];
+const chips = document.getElementById('chips');
+EX.forEach(([label, text]) => {
+  const b = document.createElement('div');
+  b.className = 'chip'; b.textContent = label;
+  b.onclick = () => { document.getElementById('txt').value = text; run(); };
+  chips.appendChild(b);
+});
+drawMeter({});
+
+function drawMeter(p){
+  document.getElementById('meter').innerHTML = METERS.map(k=>{
+    const v = p[k] || 0;
+    const c = v >= 75 ? 'var(--red)' : v >= 40 ? 'var(--amber)' : 'var(--teal)';
+    return `<div class="mrow"><div class="mlabel">${k}</div>
+      <div class="mtrack"><div class="mfill" style="width:${v}%;background:${c}"></div></div>
+      <div class="mval">${v}</div></div>`;
+  }).join('');
+}
+
+async function run(){
+  const text = document.getElementById('txt').value.trim();
+  if(!text) return;
+  const btn = document.getElementById('go'); btn.disabled = true; btn.textContent = 'Analysing…';
+  try{
+    const r = await fetch('/v1/check', {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({text, profile: document.getElementById('profile').value, lang:'en'})});
+    render(await r.json());
+  }catch(e){
+    document.getElementById('out').innerHTML =
+      `<div class="empty">Could not reach the API.<br>Start it with <span class="mono">uvicorn server:app --port 8000</span></div>`;
+  }
+  btn.disabled = false; btn.textContent = 'Analyse';
+}
+document.getElementById('go').onclick = run;
+
+function render(d){
+  const V = {
+    HIGH_RISK:{c:'v-red',   i:'⛔', t:'DANGER — likely scam'},
+    UNCERTAIN:{c:'v-amber', i:'⚠️', t:'BE CAREFUL — verify first'},
+    NO_PATTERN:{c:'v-green',i:'✅', t:'No scam pattern found'}
+  }[d.verdict];
+  const cat = d.category, acc = d.accessible || {};
+  let h = `<div class="verdict ${V.c}"><div class="vicon">${V.i}</div>
+      <div><div class="vtitle">${V.t}</div>
+      <div class="vsub">${cat ? cat.icon+' <b>'+cat.name+'</b>' : 'Nothing suspicious detected in this message.'}</div></div></div>`;
+
+  if(cat){
+    h += `<div class="kv"><b>Why:</b> ${cat.why}</div>
+          <div class="advice"><b>What to do →</b> ${cat.action.en}</div>`;
+  }
+  if(d.explanation && d.explanation.length){
+    h += `<div class="exp"><b style="color:var(--ink)">Signals detected:</b><ul>` +
+      d.explanation.slice(0,4).map(e=>`<li>${e}</li>`).join('') + `</ul></div>`;
+  }
+  h += `<div class="a11y"><div class="lbl">Delivered for: ${acc.profile || 'default'}</div>` +
+       (acc.shape ? `<div style="font-size:15px;margin:5px 0"><b>${acc.shape} ${acc.shape_word}</b></div>`:'') +
+       (acc.speech ? `<div>🔊 <i>“${acc.speech.slice(0,110)}…”</i></div>`:'') +
+       (acc.easy   ? `<div>📖 ${acc.easy}</div>`:'') +
+       (acc.haptic && acc.haptic!=='none' ? `<div>📳 haptic: ${acc.haptic}</div>`:'') +
+       (acc.earcon ? `<div>🎵 earcon: ${acc.earcon}</div>`:'') +
+       `<div>📞 ${(acc.call_person||{}).prompt || 'Call someone you trust'}</div></div>`;
+
+  const c = d.committee || {}, rc = d.receipt || {};
+  h += `<div class="kv" style="margin-top:11px">
+        <span class="pill">rules: ${c.rules}</span>
+        <span class="pill">model: ${c.ml}</span>
+        <span class="pill">p=${c.ml_prob}</span></div>
+        <div class="mono" style="margin-top:7px">receipt ${rc.receipt_id||'—'} · warned=${rc.warned} · content-free (hash only)</div>`;
+
+  document.getElementById('out').innerHTML = h;
+  drawMeter((d.meter||{}).pressures || {});
+}
+</script>
+</html>
