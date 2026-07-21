@@ -1,0 +1,38 @@
+name: CI
+
+# Every push and PR runs the full verification suite — the same
+# `tests/run_all.py` a reviewer runs locally. Green means: the
+# false-reassurance gate holds, the OOD and in-distribution evals pass,
+# the API/accessibility contracts hold, and the security hardening works.
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Dependency vulnerability scan (pip-audit)
+        run: |
+          pip install pip-audit
+          pip-audit --desc || true   # advisory; surface CVEs without blocking (yet)
+
+      - name: Run full verification suite
+        env:
+          PYTHONUTF8: "1"
+        run: python tests/run_all.py

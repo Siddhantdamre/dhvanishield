@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+# generated benchmark artifacts (regenerate with tests/loadtest.py)
+loadtest_results.json
+loadtest.svg
+# real-world dataset (fetch with tests/realworld/fetch.py; not ours to redistribute)
+tests/realworld/sms.tsv
+# collected feedback corpus (user data — never commit)
+data/labeled_examples.jsonl
+# cached real-data-trained message model (rebuilt from the SMS corpus)
+models/

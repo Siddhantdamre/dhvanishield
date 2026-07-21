@@ -1,0 +1,11 @@
+scikit-learn>=1.3
+streamlit>=1.30
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+faster-whisper>=1.0
+httpx>=0.27
+
+# Optional (enterprise): install to unlock the matching feature.
+# redis>=5.0          # shared rate-limit store across replicas (DHVANI_REDIS_URL)
+# cryptography>=42    # asymmetric (Ed25519) receipt signing for 3rd-party verify
