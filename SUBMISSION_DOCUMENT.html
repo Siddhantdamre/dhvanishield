@@ -1,5 +1,7 @@
+<!doctype html>
+<html lang="en">
 <meta charset="utf-8">
-<title>DhvaniShield — ET AI Hackathon 2026</title>
+<title>DhvaniShield &#8212; ET AI Hackathon 2026</title>
 <style>
   @page { size:A4; margin:15mm 14mm; }
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -45,14 +47,14 @@
 <svg viewBox="0 0 700 124">
   <rect width="700" height="124" fill="#0F2E4C"/>
   <rect width="7" height="124" fill="#0E7C86"/>
-  <text x="26" y="45" font-family="Segoe UI,Helvetica,Arial" font-size="30" font-weight="700" fill="#ffffff">DhvaniShield</text>
-  <text x="26" y="68" font-family="Segoe UI,Helvetica,Arial" font-size="11.5" fill="#9fc4d8">An on-device manipulation-defence layer for scam calls and messages</text>
-  <text x="26" y="90" font-family="Segoe UI,Helvetica,Arial" font-size="10.5" fill="#e8f0f7">Caller-ID tools match the number. DhvaniShield reads the <tspan font-weight="700" fill="#7fd4dd">technique</tspan>.</text>
-  <text x="26" y="110" font-family="Segoe UI,Helvetica,Arial" font-size="8.5" fill="#7a9bb5">ET AI Hackathon 2026  |  Problem Statement 6: AI for Digital Public Safety  |  Siddhant Damre  |  solo build</text>
+  <text x="26" y="45" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#ffffff">DhvaniShield</text>
+  <text x="26" y="68" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" fill="#9fc4d8">An on-device manipulation-defence layer for scam calls and messages</text>
+  <text x="26" y="90" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" fill="#e8f0f7">Caller-ID tools match the number. DhvaniShield reads the <tspan font-weight="700" fill="#7fd4dd">technique</tspan>.</text>
+  <text x="26" y="110" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="8.5" fill="#7a9bb5">ET AI Hackathon 2026  |  Problem Statement 6: AI for Digital Public Safety  |  Siddhant Damre  |  solo build</text>
 </svg>
 
 <svg viewBox="0 0 700 74">
-  <g font-family="Segoe UI,Helvetica,Arial">
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif">
     <rect x="0" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
     <text x="84" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">0.02%</text>
     <text x="84" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">false alarm</text>
@@ -74,20 +76,20 @@
 
 <h2><span>01</span>The problem</h2>
 <p class="lede">A caller posing as CBI, customs or police manufactures a fake case, isolates the victim
-("don't tell anyone, don't hang up"), and over 30&ndash;60 minutes coerces a transfer of life savings.
+("don't tell anyone, don't hang up"), and over 30&#8211;60 minutes coerces a transfer of life savings.
 It is a government-flagged, national-scale problem in India.</p>
 <table>
 <tr><th style="width:30%">Why existing defences fail</th><th>What actually happens</th></tr>
-<tr><td><strong>The number is disposable</strong></td><td>Fresh SIMs, spoofed IDs, WhatsApp calls. By the time a number is blacklisted it has been discarded &mdash; number-reputation is always one step behind.</td></tr>
+<tr><td><strong>The number is disposable</strong></td><td>Fresh SIMs, spoofed IDs, WhatsApp calls. By the time a number is blacklisted it has been discarded &#8212; number-reputation is always one step behind.</td></tr>
 <tr><td><strong>The victim authorises the payment</strong></td><td>To a bank's fraud engine the transfer looks perfectly legitimate. The fraud signal lives in a conversation the bank cannot see.</td></tr>
-<tr><td><strong>The victims are the least-served users</strong></td><td>Elderly, non-English-speaking, low-literacy and disabled people &mdash; exactly who English-first, app-fluent tools fail.</td></tr>
+<tr><td><strong>The victims are the least-served users</strong></td><td>Elderly, non-English-speaking, low-literacy and disabled people &#8212; exactly who English-first, app-fluent tools fail.</td></tr>
 </table>
 
 <h2><span>02</span>Where it intervenes</h2>
 <p>Scams follow a stable coercion grammar. DhvaniShield tracks that arc and fires
-<strong>before money moves</strong> &mdash; not after.</p>
+<strong>before money moves</strong> &#8212; not after.</p>
 <svg viewBox="0 0 700 104">
-  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="8.5">
     <line x1="45" y1="46" x2="655" y2="46" stroke="#c8d4e0" stroke-width="2.5"/>
     <g text-anchor="middle">
       <circle cx="45"  cy="46" r="8" fill="#0F2E4C"/><text x="45"  y="72" fill="#1a2332" font-weight="600">Authority</text><text x="45"  y="84" font-size="7.5" fill="#7a8796">"I am from CBI"</text>
@@ -107,7 +109,7 @@ It is a government-flagged, national-scale problem in India.</p>
 
 <h2><span>03</span>Architecture</h2>
 <svg viewBox="0 0 700 258">
-  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="8.5">
     <rect x="240" y="0" width="220" height="24" rx="4" fill="#ffffff" stroke="#8a99a8"/>
     <text x="350" y="16" text-anchor="middle" fill="#1a2332">call transcript / forwarded message</text>
     <path d="M350 24 L350 38" stroke="#7a8796" stroke-width="1.5"/>
@@ -154,7 +156,7 @@ It is a government-flagged, national-scale problem in India.</p>
 </svg>
 <div class="callout">
 <strong>The safety invariant.</strong> There is no <code>SAFE</code> class. The output space is
-<code>HIGH_RISK / UNCERTAIN / NO_PATTERN</code>, and learned layers may only <em>escalate</em> &mdash; so
+<code>HIGH_RISK / UNCERTAIN / NO_PATTERN</code>, and learned layers may only <em>escalate</em> &#8212; so
 no model error can ever produce a false "you're safe". A false alarm costs one verification call; a false
 reassurance costs a life's savings. The asymmetry is built into the architecture.
 </div>
@@ -163,7 +165,7 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
 <p>Instead of a black-box score, the user sees <em>what is being done to them</em>. Real output for:
 <em>"This is CBI, a case is filed, do not tell anyone, transfer money now."</em></p>
 <svg viewBox="0 0 700 172">
-  <g font-family="Segoe UI,Helvetica,Arial" font-size="9">
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="9">
     <rect x="0" y="0" width="430" height="172" rx="5" fill="#ffffff" stroke="#b9c6d3"/>
     <g fill="#37505e">
       <text x="14" y="26">Authority</text>
@@ -198,9 +200,9 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
   </g>
 </svg>
 
-<h2><span>05</span>Results &mdash; every number reproducible</h2>
+<h2><span>05</span>Results &#8212; every number reproducible</h2>
 <svg viewBox="0 0 700 168">
-  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="8.5">
     <text x="0" y="12" font-size="9.5" font-weight="700" fill="#0F2E4C">Detection performance across independent test sets</text>
     <line x1="185" y1="24" x2="185" y2="150" stroke="#8a99a8"/>
     <g fill="#37505e">
@@ -221,7 +223,7 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
   </g>
 </svg>
 <svg viewBox="0 0 700 196">
-  <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="8.5">
     <text x="0" y="12" font-size="9.5" font-weight="700" fill="#0F2E4C">Risk-coverage curve: the model knows when to defer to a human</text>
     <line x1="60" y1="30" x2="60" y2="150" stroke="#8a99a8"/>
     <line x1="60" y1="150" x2="670" y2="150" stroke="#8a99a8"/>
@@ -236,7 +238,7 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
       <text x="670" y="164" text-anchor="middle">100%</text>
       <text x="365" y="180" text-anchor="middle" font-size="8" fill="#37505e">fraction of cases the model answers (coverage)</text>
     </g>
-    <text x="14" y="95" font-size="8" fill="#37505e" transform="rotate(-90 14 95)" text-anchor="middle">error rate</text>
+    <text x="17" y="95" font-size="8" fill="#37505e" transform="rotate(-90 17 95)" text-anchor="middle">error rate</text>
     <polyline points="60,150 365,142 548,143 670,25" fill="none" stroke="#0E7C86" stroke-width="2.5"/>
     <g fill="#0E7C86">
       <circle cx="60" cy="150" r="4"/><circle cx="365" cy="142" r="4"/><circle cx="548" cy="143" r="4"/>
@@ -250,7 +252,7 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
   </g>
 </svg>
 <p class="cap">Measured on real held-out data. Error collapses once the model may abstain on its
-least-confident cases &mdash; the basis of the defer-to-human guarantee.</p>
+least-confident cases &#8212; the basis of the defer-to-human guarantee.</p>
 <table>
 <tr><th style="width:42%">Metric</th><th style="width:26%">Result</th><th>Evidence base</th></tr>
 <tr><td>False alarm on legitimate messages</td><td><strong>0.02%</strong> (1 in 4,827)</td><td>4,827 <em>real</em> messages</td></tr>
@@ -264,7 +266,7 @@ least-confident cases &mdash; the basis of the defer-to-human guarantee.</p>
 </table>
 <div class="honest">
 <strong>Reported honestly.</strong> The manipulation engine scores <strong>AUC 0.66 on real data</strong>
-versus 0.94 on a hand-authored probe &mdash; the gap is disclosed, not hidden, because self-written probes
+versus 0.94 on a hand-authored probe &#8212; the gap is disclosed, not hidden, because self-written probes
 overstate performance and 0.66 is the number we defend. The system is validated on real <em>messages</em>,
 not live <em>phone calls</em>; that needs a field pilot, stated as the next step rather than implied as done.
 </div>
@@ -273,27 +275,27 @@ not live <em>phone calls</em>; that needs a field pilot, stated as the next step
 <table>
 <tr><th style="width:24%">Axis</th><th style="width:36%">Caller-ID tools (Truecaller etc.)</th><th>DhvaniShield</th></tr>
 <tr><td><strong>What it reads</strong></td><td>the phone number's reputation</td><td>the manipulation technique in the words</td></tr>
-<tr><td><strong>Fails when</strong></td><td>number is fresh, spoofed or "official"</td><td>&mdash; the coercion grammar is invariant</td></tr>
+<tr><td><strong>Fails when</strong></td><td>number is fresh, spoofed or "official"</td><td>&#8212; the coercion grammar is invariant</td></tr>
 <tr><td><strong>Output</strong></td><td>block / "spam" label</td><td>explains <em>how</em> you are being manipulated, and what to do</td></tr>
 <tr><td><strong>Users served</strong></td><td>app-fluent, English-first</td><td>elderly, vernacular, blind, deaf, low-literacy</td></tr>
 <tr><td><strong>Data model</strong></td><td>uploads your contact book</td><td>on-device; nothing leaves the phone</td></tr>
-<tr><td><strong>Can it say "safe"?</strong></td><td>yes &mdash; and that is the dangerous error</td><td>structurally impossible</td></tr>
+<tr><td><strong>Can it say "safe"?</strong></td><td>yes &#8212; and that is the dangerous error</td><td>structurally impossible</td></tr>
 </table>
 
 <h2><span>07</span>Built for the people scammers actually target</h2>
-<p>Most scam tools assume a sighted, literate, English-reading, app-fluent user &mdash; the exact person
+<p>Most scam tools assume a sighted, literate, English-reading, app-fluent user &#8212; the exact person
 scammers avoid. Six accessibility profiles, each enforced as a test:</p>
 <table>
 <tr><th style="width:22%">Profile</th><th>How the single alert is delivered</th></tr>
-<tr><td><strong>Blind / low-vision</strong></td><td>spoken script (short sentences, action repeated) plus a distinct audio earcon &mdash; no visual dependency</td></tr>
-<tr><td><strong>Deaf / hard-of-hearing</strong></td><td>pictogram card plus a distinct haptic vibration pattern &mdash; no audio dependency</td></tr>
+<tr><td><strong>Blind / low-vision</strong></td><td>spoken script (short sentences, action repeated) plus a distinct audio earcon &#8212; no visual dependency</td></tr>
+<tr><td><strong>Deaf / hard-of-hearing</strong></td><td>pictogram card plus a distinct haptic vibration pattern &#8212; no audio dependency</td></tr>
 <tr><td><strong>Colour-blind</strong></td><td>meaning carried by shape + word ("STOP"), never colour alone</td></tr>
 <tr><td><strong>Low-literacy</strong></td><td>scam icon plus a grade-1 easy-read line</td></tr>
 <tr><td><strong>Cognitive / elderly</strong></td><td>one step only, the family code word, and one tap to a trusted person</td></tr>
 </table>
 <div class="callout">
 <strong>The family code word.</strong> A household agrees one secret word; any caller claiming to be family
-must produce it. It costs nothing, needs no technology, and defeats even AI voice cloning &mdash; which no
+must produce it. It costs nothing, needs no technology, and defeats even AI voice cloning &#8212; which no
 detector can reliably do.
 </div>
 
@@ -303,7 +305,7 @@ detector can reliably do.
 <h3>Privacy by architecture</h3>
 <ul>
 <li>No database, no data at rest. Content processed and deleted within the request.</li>
-<li>Telemetry and receipts store labels and hashes only &mdash; never text.</li>
+<li>Telemetry and receipts store labels and hashes only &#8212; never text.</li>
 <li>On-device inference: no cloud AI call; nothing leaves the phone.</li>
 <li>DPDP Act 2023 obligations satisfied largely by construction.</li>
 </ul>
@@ -319,7 +321,7 @@ detector can reliably do.
 </div>
 </div>
 <p><strong>Duty-of-care receipt.</strong> Every assessment issues a signed, content-free receipt proving a
-specific message was assessed and the user warned &mdash; storing only a keyed hash. For an institution
+specific message was assessed and the user warned &#8212; storing only a keyed hash. For an institution
 under pressure to reimburse scam losses, this turns a detector into a compliance asset with zero new
 privacy liability.</p>
 
@@ -341,17 +343,17 @@ for them <em>first</em>. That is distributive justice encoded as engineering.</p
 <ul>
 <li>Validated on real <strong>messages</strong>; live <strong>call</strong> validation needs a consented pilot.</li>
 <li>Manipulation engine is a research direction at AUC 0.66 on real data.</li>
-<li>Roughly a quarter of genuinely ambiguous authority calls get "verify independently" &mdash; deliberate abstention, since a real and a fake police call are textually identical.</li>
+<li>Roughly a quarter of genuinely ambiguous authority calls get "verify independently" &#8212; deliberate abstention, since a real and a fake police call are textually identical.</li>
 <li>Calibration under distribution shift and compositional reasoning remain open problems.</li>
 </ul>
 </div>
 <div>
 <h3>Roadmap</h3>
 <ol>
-<li><strong>Pull-based pilot</strong> &mdash; a WhatsApp number people forward to. Zero install, zero call access. Deployable today.</li>
-<li><strong>Close the data flywheel</strong> &mdash; consented labels build a proprietary real-scam corpus; accuracy compounds with use.</li>
-<li><strong>On-device call screening</strong> &mdash; safe only <em>because</em> the collect-nothing foundation exists first.</li>
-<li><strong>Institutional deployment</strong> &mdash; bank / telco / helpline, gated on third-party security and DPDP audit.</li>
+<li><strong>Pull-based pilot</strong> &#8212; a WhatsApp number people forward to. Zero install, zero call access. Deployable today.</li>
+<li><strong>Close the data flywheel</strong> &#8212; consented labels build a proprietary real-scam corpus; accuracy compounds with use.</li>
+<li><strong>On-device call screening</strong> &#8212; safe only <em>because</em> the collect-nothing foundation exists first.</li>
+<li><strong>Institutional deployment</strong> &#8212; bank / telco / helpline, gated on third-party security and DPDP audit.</li>
 </ol>
 </div>
 </div>
@@ -368,12 +370,13 @@ uvicorn server:app --port 8000   # then open http://127.0.0.1:8000 for the live 
 <div class="callout">
 <strong>Why this matters.</strong> It is not a better spam filter. It is a second opinion that reaches the
 person who needs it, at the moment they need it, in the language they speak, through the sense they can
-perceive &mdash; and it is built so it can never be the thing that tells a victim a scam was safe.
+perceive &#8212; and it is built so it can never be the thing that tells a victim a scam was safe.
 </div>
 
 <footer>
-DhvaniShield &middot; ET AI Hackathon 2026 &middot; Problem Statement 6 &middot; all results reproducible via
+DhvaniShield &#183; ET AI Hackathon 2026 &#183; Problem Statement 6 &#183; all results reproducible via
 <code>python tests/run_all.py</code><br>
-Repository docs: ARCHITECTURE.md &middot; MODEL_CARD.md &middot; SECURITY.md &middot; PRIVACY.md &middot;
-THREAT_MODEL.md &middot; IMPACT.md &middot; RESEARCH_MANIPULATION.md
+Repository docs: ARCHITECTURE.md &#183; MODEL_CARD.md &#183; SECURITY.md &#183; PRIVACY.md &#183;
+THREAT_MODEL.md &#183; IMPACT.md &#183; RESEARCH_MANIPULATION.md
 </footer>
+</html>
