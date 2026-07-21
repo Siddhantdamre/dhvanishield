@@ -6,220 +6,285 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --bg:#070d16; --panel:#0e1826; --panel2:#131f30; --line:#1e2d42;
-    --ink:#e8f0f8; --dim:#8ba2bd; --teal:#2dd4bf; --tealdim:#0f766e;
+    --bg:#050a12; --panel:#0c1623; --panel2:#111e2e; --line:#1c2c41;
+    --ink:#e9f1f9; --dim:#8ba3bf; --dim2:#5f7591;
+    --teal:#2dd4bf; --tealdk:#0d9488;
     --red:#f87171; --amber:#fbbf24; --green:#34d399;
   }
   body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-       background:radial-gradient(1200px 600px at 50% -10%,#12263d 0%,var(--bg) 60%);
-       color:var(--ink);min-height:100vh;padding:22px 16px 60px}
-  .wrap{max-width:1080px;margin:0 auto}
-  header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
-  .logo{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--tealdim));
-        display:grid;place-items:center;font-size:21px;flex:0 0 42px;box-shadow:0 0 24px rgba(45,212,191,.35)}
-  h1{font-size:25px;letter-spacing:-.5px;font-weight:700}
-  .tag{color:var(--dim);font-size:13.5px;margin-top:2px}
-  .tag b{color:var(--teal);font-weight:600}
-  .badges{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 18px}
-  .badge{font-size:11px;color:var(--dim);border:1px solid var(--line);background:var(--panel);
-         padding:4px 10px;border-radius:20px}
+       background:radial-gradient(1100px 520px at 50% -8%,#132a40 0%,transparent 60%),var(--bg);
+       color:var(--ink);min-height:100vh;padding:20px 16px 44px}
+  .wrap{max-width:1120px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  header{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+  .logo{width:40px;height:40px;border-radius:11px;flex:0 0 40px;
+        background:linear-gradient(135deg,var(--teal),var(--tealdk));
+        display:grid;place-items:center;font-size:20px;
+        box-shadow:0 0 26px rgba(45,212,191,.35)}
+  h1{font-size:23px;letter-spacing:-.5px;font-weight:750;line-height:1.1}
+  .tagline{color:var(--dim);font-size:13px;margin-top:3px}
+  .tagline b{color:var(--teal);font-weight:650}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin:13px 0 16px}
+  .badge{font-size:11px;color:var(--dim);border:1px solid var(--line);
+         background:var(--panel);padding:4px 10px;border-radius:20px;white-space:nowrap}
   .badge b{color:var(--teal)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:860px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}
-  .card h3{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);
-           font-weight:600;margin-bottom:11px}
-  textarea{width:100%;min-height:104px;background:var(--panel2);color:var(--ink);
-           border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;
+
+  /* ---------- input ---------- */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .lbl{font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--dim2);
+       font-weight:650;margin-bottom:9px}
+  textarea{width:100%;min-height:78px;background:var(--panel2);color:var(--ink);
+           border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14px;
            font-family:inherit;resize:vertical;line-height:1.5}
-  textarea:focus{outline:none;border-color:var(--teal)}
-  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0}
+  textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(45,212,191,.12)}
+  .exrow{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0 0}
+  .exgrp{flex:1;min-width:220px}
+  .exlbl{font-size:10px;letter-spacing:.9px;text-transform:uppercase;font-weight:650;margin-bottom:6px}
+  .exlbl.bad{color:var(--red)} .exlbl.good{color:var(--green)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
   .chip{font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--dim);
-        padding:6px 11px;border-radius:8px;cursor:pointer;transition:.15s}
-  .chip:hover{border-color:var(--teal);color:var(--ink);transform:translateY(-1px)}
-  .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+        padding:6px 11px;border-radius:8px;cursor:pointer;transition:.14s}
+  .chip:hover{color:var(--ink);transform:translateY(-1px)}
+  .chip.bad:hover{border-color:var(--red)} .chip.good:hover{border-color:var(--green)}
+  .ctrls{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:13px;
+         padding-top:13px;border-top:1px solid var(--line)}
   select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
-         border-radius:8px;padding:9px 11px;font-size:13px;font-family:inherit}
-  button{background:linear-gradient(135deg,var(--teal),var(--tealdim));color:#04121a;border:0;
-         border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;
-         font-family:inherit;transition:.15s}
-  button:hover{filter:brightness(1.12);transform:translateY(-1px)}
-  button:disabled{opacity:.5;cursor:wait;transform:none}
-  .verdict{border-radius:12px;padding:15px 17px;margin-bottom:13px;border:1px solid;
-           display:flex;gap:13px;align-items:flex-start;animation:pop .3s ease}
-  @keyframes pop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-  .vicon{font-size:26px;line-height:1}
-  .vtitle{font-size:17px;font-weight:700;margin-bottom:3px}
-  .vsub{font-size:13px;opacity:.9;line-height:1.45}
-  .v-red{background:rgba(248,113,113,.11);border-color:var(--red);color:var(--red)}
-  .v-amber{background:rgba(251,191,36,.11);border-color:var(--amber);color:var(--amber)}
-  .v-green{background:rgba(52,211,153,.11);border-color:var(--green);color:var(--green)}
-  .meter{margin:4px 0}
-  .mrow{display:flex;align-items:center;gap:11px;margin:7px 0;font-size:12.5px}
-  .mlabel{width:104px;color:var(--dim);flex:0 0 104px}
-  .mtrack{flex:1;height:11px;background:var(--panel2);border-radius:6px;overflow:hidden;
-          border:1px solid var(--line)}
-  .mfill{height:100%;border-radius:6px;width:0;transition:width .7s cubic-bezier(.2,.8,.2,1)}
-  .mval{width:34px;text-align:right;color:var(--dim);font-variant-numeric:tabular-nums}
-  .kv{font-size:12.5px;color:var(--dim);line-height:1.75}
-  .kv b{color:var(--ink);font-weight:600}
-  .pill{display:inline-block;font-size:11px;padding:3px 9px;border-radius:6px;
-        background:var(--panel2);border:1px solid var(--line);color:var(--teal);margin-right:5px}
-  .advice{background:var(--panel2);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;
-          padding:11px 13px;font-size:13.5px;line-height:1.55;margin-top:9px}
-  .exp{font-size:12px;color:var(--dim);line-height:1.65;margin-top:9px}
-  .exp li{margin:5px 0 5px 15px}
-  .a11y{background:var(--panel2);border:1px solid var(--line);border-radius:10px;
-        padding:12px;font-size:12.5px;line-height:1.7;margin-top:10px}
-  .a11y .lbl{color:var(--teal);font-weight:600;font-size:11px;letter-spacing:.6px;
-             text-transform:uppercase}
-  .mono{font-family:Consolas,monospace;font-size:11px;color:var(--dim);word-break:break-all}
-  .empty{color:var(--dim);font-size:13.5px;text-align:center;padding:34px 12px;line-height:1.6}
-  footer{text-align:center;color:var(--dim);font-size:11.5px;margin-top:26px;line-height:1.7}
+         border-radius:9px;padding:9px 11px;font-size:13px;font-family:inherit;cursor:pointer}
+  button{background:linear-gradient(135deg,var(--teal),var(--tealdk));color:#03121a;border:0;
+         border-radius:9px;padding:11px 26px;font-size:14px;font-weight:750;cursor:pointer;
+         font-family:inherit;transition:.14s}
+  button:hover{filter:brightness(1.1);transform:translateY(-1px)}
+  button:disabled{opacity:.55;cursor:wait;transform:none}
+  .hint{color:var(--dim2);font-size:12px;margin-left:auto}
+
+  /* ---------- results ---------- */
+  #results{margin-top:16px;display:none}
+  #results.on{display:block;animation:rise .34s cubic-bezier(.2,.8,.2,1)}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .verdict{border-radius:14px;padding:16px 19px;border:1px solid;display:flex;gap:15px;
+           align-items:center;margin-bottom:14px}
+  .vmark{font-size:30px;line-height:1;flex:0 0 auto}
+  .vttl{font-size:19px;font-weight:750;letter-spacing:-.3px}
+  .vsub{font-size:13.5px;opacity:.92;margin-top:3px}
+  .v-red{background:linear-gradient(90deg,rgba(248,113,113,.16),rgba(248,113,113,.05));
+         border-color:var(--red);color:var(--red);animation:pulse 1.6s ease-out 1}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(248,113,113,.45)}100%{box-shadow:0 0 0 22px rgba(248,113,113,0)}}
+  .v-amber{background:linear-gradient(90deg,rgba(251,191,36,.14),rgba(251,191,36,.04));
+           border-color:var(--amber);color:var(--amber)}
+  .v-green{background:linear-gradient(90deg,rgba(52,211,153,.13),rgba(52,211,153,.04));
+           border-color:var(--green);color:var(--green)}
+
+  /* coercion arc */
+  .arc{display:flex;align-items:flex-start;gap:0;margin:0 0 14px;padding:14px 16px;
+       background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+  .stage{flex:1;min-width:88px;text-align:center;position:relative}
+  .stage:not(:last-child):after{content:'';position:absolute;top:11px;left:calc(50% + 13px);
+       right:calc(-50% + 13px);height:2px;background:var(--line)}
+  .stage.hit:not(:last-child):after{background:var(--teal)}
+  .dot{width:24px;height:24px;border-radius:50%;margin:0 auto 7px;border:2px solid var(--line);
+       background:var(--panel2);display:grid;place-items:center;font-size:11px;font-weight:700;
+       color:var(--dim2);position:relative;z-index:1;transition:.3s}
+  .stage.hit .dot{border-color:var(--teal);background:var(--teal);color:#03121a}
+  .stage.peak .dot{border-color:var(--red);background:var(--red);color:#fff;
+                   box-shadow:0 0 16px rgba(248,113,113,.5)}
+  .sname{font-size:11px;color:var(--dim2);font-weight:600}
+  .stage.hit .sname{color:var(--ink)}
+
+  .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:14px}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+
+  .mrow{display:flex;align-items:center;gap:10px;margin:9px 0;font-size:12.5px}
+  .mlab{width:96px;flex:0 0 96px;color:var(--dim)}
+  .mtrack{flex:1;height:12px;background:var(--panel2);border-radius:6px;
+          border:1px solid var(--line);overflow:hidden}
+  .mfill{height:100%;width:0;border-radius:5px;transition:width .8s cubic-bezier(.2,.9,.2,1)}
+  .mnum{width:30px;text-align:right;color:var(--dim2);font-variant-numeric:tabular-nums;font-size:11.5px}
+
+  .type{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:700;margin-bottom:8px}
+  .why{font-size:12.5px;color:var(--dim);line-height:1.6;margin-bottom:10px}
+  .advice{background:var(--panel2);border-left:3px solid var(--teal);border-radius:0 9px 9px 0;
+          padding:11px 13px;font-size:13.5px;line-height:1.55}
+  .advice b{color:var(--teal)}
+  .a11y{margin-top:11px;background:var(--panel2);border:1px solid var(--line);
+        border-radius:10px;padding:11px 13px}
+  .a11y .h{font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:var(--teal);
+           font-weight:700;margin-bottom:7px}
+  .a11y .ln{font-size:12.5px;color:var(--dim);line-height:1.75}
+  .a11y .ln b{color:var(--ink)}
+  .foot{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:13px;
+        padding-top:12px;border-top:1px solid var(--line)}
+  .pill{font-size:11px;padding:4px 9px;border-radius:6px;background:var(--panel2);
+        border:1px solid var(--line);color:var(--dim)}
+  .pill b{color:var(--teal)}
+  .seal{font-size:10.5px;color:var(--dim2);font-family:Consolas,monospace;margin-left:auto}
+  .empty{color:var(--dim2);font-size:13.5px;text-align:center;padding:26px 12px;line-height:1.7}
+  footer{text-align:center;color:var(--dim2);font-size:11.5px;margin-top:24px;line-height:1.7}
 </style>
 
 <div class="wrap">
   <header>
-    <div class="logo">🛡</div>
+    <div class="logo">&#128737;</div>
     <div>
       <h1>DhvaniShield</h1>
-      <div class="tag">Caller-ID tools match the <i>number</i>. This reads the <b>technique</b>.</div>
+      <div class="tagline">Caller-ID tools match the <i>number</i>. This reads the <b>technique</b>.</div>
     </div>
   </header>
 
   <div class="badges">
-    <span class="badge">on-device &middot; <b>nothing leaves your phone</b></span>
+    <span class="badge">on-device &mdash; <b>nothing leaves your phone</b></span>
     <span class="badge"><b>6</b> languages</span>
     <span class="badge"><b>0.02%</b> false alarm on 4,827 real messages</span>
     <span class="badge">it can <b>never</b> say "safe"</span>
     <span class="badge"><b>22/22</b> tests passing</span>
   </div>
 
-  <div class="grid">
-    <!-- INPUT -->
-    <div class="card">
-      <h3>Paste what the caller said</h3>
-      <textarea id="txt" placeholder="e.g. This is CBI, a case is registered against you, do not tell anyone, transfer money to the safe account..."></textarea>
-      <div class="chips" id="chips"></div>
-      <div class="row">
-        <select id="profile">
-          <option value="default">Standard view</option>
-          <option value="blind">Blind / low-vision</option>
-          <option value="deaf">Deaf / hard-of-hearing</option>
-          <option value="low_literacy">Low-literacy</option>
-          <option value="cognitive">Cognitive / elderly</option>
-          <option value="colorblind">Colour-blind safe</option>
-        </select>
-        <button id="go">Analyse</button>
+  <div class="card">
+    <div class="lbl">What did the caller say?</div>
+    <textarea id="txt" placeholder="Paste a message, or pick an example below..."></textarea>
+    <div class="exrow">
+      <div class="exgrp">
+        <div class="exlbl bad">Scams</div>
+        <div class="chips" id="chipsBad"></div>
       </div>
-      <div class="exp" style="margin-top:12px">
-        Try a scam, then a normal message. Notice it explains <i>how</i> you're being
-        manipulated &mdash; and never tells you a call is safe.
+      <div class="exgrp">
+        <div class="exlbl good">Legitimate</div>
+        <div class="chips" id="chipsGood"></div>
       </div>
     </div>
-
-    <!-- RESULT -->
-    <div class="card">
-      <h3>Result</h3>
-      <div id="out"><div class="empty">Pick an example or paste a message,<br>then press <b>Analyse</b>.</div></div>
+    <div class="ctrls">
+      <select id="profile">
+        <option value="default">Standard view</option>
+        <option value="blind">Blind / low-vision</option>
+        <option value="deaf">Deaf / hard-of-hearing</option>
+        <option value="low_literacy">Low-literacy</option>
+        <option value="cognitive">Cognitive / elderly</option>
+        <option value="colorblind">Colour-blind safe</option>
+      </select>
+      <button id="go">Analyse</button>
+      <span class="hint">Try a scam, then a normal message.</span>
     </div>
   </div>
 
-  <!-- METER -->
-  <div class="card" style="margin-top:16px">
-    <h3>Manipulation Meter &mdash; what is being done to you</h3>
-    <div class="meter" id="meter"></div>
-    <div class="exp">Six coercion levers scored independently. A real institution triggers one;
-      a scam stacks several &mdash; that pattern is what the system detects.</div>
+  <div id="results">
+    <div id="verdict"></div>
+    <div class="arc" id="arc"></div>
+    <div class="grid">
+      <div class="card">
+        <div class="lbl">Manipulation Meter &mdash; what is being done to you</div>
+        <div id="meter"></div>
+      </div>
+      <div class="card" id="detail"></div>
+    </div>
+  </div>
+
+  <div id="idle" class="card" style="margin-top:16px">
+    <div class="empty">Pick an example above and press <b style="color:var(--teal)">Analyse</b>.<br>
+      Watch what it does on a normal message versus a scam.</div>
   </div>
 
   <footer>
     DhvaniShield &middot; ET AI Hackathon 2026 &middot; Problem Statement 6<br>
-    Runs fully on-device &middot; process-and-delete &middot; every verdict traceable
+    Runs fully on-device &middot; process-and-delete &middot; every verdict traceable to matched words
   </footer>
 </div>
 
 <script>
-const EX = [
-  ["🚨 Digital arrest", "This is CBI, a case is registered against your Aadhaar. Do not tell anyone, stay on the line, and transfer the money to the safe account for verification."],
-  ["🏦 KYC phishing", "Your account will be blocked today. Update your KYC now and share your card number, CVV and the OTP on this link."],
-  ["📹 Sextortion", "I recorded you on the video call last night. Pay ten thousand within one hour or I send it to all your contacts."],
-  ["🌐 Tamil scam", "நான் சிபிஐ யிலிருந்து பேசுகிறேன், உங்கள் பெயரில் வழக்கு உள்ளது, யாரிடமும் சொல்லாதீர்கள், பணத்தை மாற்றுங்கள்"],
-  ["✅ Normal delivery", "Hi, your furniture delivery is scheduled for Friday between 10 and 12."],
-  ["✅ Real bank call", "We blocked a suspicious transaction on your card. We will never ask for your PIN or OTP. Please call the number on the back of your card."],
+const BAD=[
+ ["Digital arrest","This is CBI, a case is registered against your Aadhaar. Do not tell anyone, stay on the line, and transfer the money to the safe account for verification."],
+ ["KYC phishing","Your account will be blocked today. Update your KYC now and share your card number, CVV and the OTP on this link."],
+ ["Sextortion","I recorded you on the video call last night. Pay ten thousand within one hour or I send it to all your contacts."],
+ ["Tamil scam","நான் சிபிஐ யிலிருந்து பேசுகிறேன், உங்கள் பெயரில் வழக்கு உள்ளது, யாரிடமும் சொல்லாதீர்கள், பணத்தை மாற்றுங்கள்"],
 ];
-const METERS = ["Authority","Accusation","Isolation","Urgency","Financial pull","Access grab"];
-const chips = document.getElementById('chips');
-EX.forEach(([label, text]) => {
-  const b = document.createElement('div');
-  b.className = 'chip'; b.textContent = label;
-  b.onclick = () => { document.getElementById('txt').value = text; run(); };
-  chips.appendChild(b);
-});
-drawMeter({});
+const GOOD=[
+ ["Delivery","Hi, your furniture delivery is scheduled for Friday between 10 and 12."],
+ ["Real bank call","We blocked a suspicious transaction on your card. We will never ask for your PIN or OTP. Please call the number on the back of your card."],
+ ["Your OTP","Your OTP for the Flipkart order is 4471. Do not share it with anyone."],
+];
+const STAGES=["Authority","Accusation","Isolation","Urgency","Financial pull","Access grab"];
+const SHORT={"Authority":"Authority","Accusation":"Accusation","Isolation":"Isolation",
+             "Urgency":"Urgency","Financial pull":"Money","Access grab":"Access"};
 
-function drawMeter(p){
-  document.getElementById('meter').innerHTML = METERS.map(k=>{
-    const v = p[k] || 0;
-    const c = v >= 75 ? 'var(--red)' : v >= 40 ? 'var(--amber)' : 'var(--teal)';
-    return `<div class="mrow"><div class="mlabel">${k}</div>
-      <div class="mtrack"><div class="mfill" style="width:${v}%;background:${c}"></div></div>
-      <div class="mval">${v}</div></div>`;
-  }).join('');
+function mkChips(arr,el,cls){
+  arr.forEach(([lab,txt])=>{const d=document.createElement('div');
+    d.className='chip '+cls; d.textContent=lab;
+    d.onclick=()=>{document.getElementById('txt').value=txt; run();};
+    el.appendChild(d);});
 }
+mkChips(BAD,document.getElementById('chipsBad'),'bad');
+mkChips(GOOD,document.getElementById('chipsGood'),'good');
 
 async function run(){
-  const text = document.getElementById('txt').value.trim();
-  if(!text) return;
-  const btn = document.getElementById('go'); btn.disabled = true; btn.textContent = 'Analysing…';
+  const text=document.getElementById('txt').value.trim(); if(!text) return;
+  const b=document.getElementById('go'); b.disabled=true; b.textContent='Analysing...';
   try{
-    const r = await fetch('/v1/check', {method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({text, profile: document.getElementById('profile').value, lang:'en'})});
-    render(await r.json());
+    const r=await fetch('/v1/check',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text,profile:document.getElementById('profile').value,lang:'en'})});
+    show(await r.json());
   }catch(e){
-    document.getElementById('out').innerHTML =
-      `<div class="empty">Could not reach the API.<br>Start it with <span class="mono">uvicorn server:app --port 8000</span></div>`;
+    document.getElementById('idle').innerHTML=
+      '<div class="empty">Cannot reach the API.<br>Start it with '+
+      '<b style="color:var(--teal)">uvicorn server:app --port 8000</b></div>';
   }
-  btn.disabled = false; btn.textContent = 'Analyse';
+  b.disabled=false; b.textContent='Analyse';
 }
-document.getElementById('go').onclick = run;
+document.getElementById('go').onclick=run;
 
-function render(d){
-  const V = {
-    HIGH_RISK:{c:'v-red',   i:'⛔', t:'DANGER — likely scam'},
-    UNCERTAIN:{c:'v-amber', i:'⚠️', t:'BE CAREFUL — verify first'},
-    NO_PATTERN:{c:'v-green',i:'✅', t:'No scam pattern found'}
-  }[d.verdict];
-  const cat = d.category, acc = d.accessible || {};
-  let h = `<div class="verdict ${V.c}"><div class="vicon">${V.i}</div>
-      <div><div class="vtitle">${V.t}</div>
-      <div class="vsub">${cat ? cat.icon+' <b>'+cat.name+'</b>' : 'Nothing suspicious detected in this message.'}</div></div></div>`;
+function show(d){
+  document.getElementById('idle').style.display='none';
+  const R=document.getElementById('results'); R.className='';
+  void R.offsetWidth; R.className='on';
 
-  if(cat){
-    h += `<div class="kv"><b>Why:</b> ${cat.why}</div>
-          <div class="advice"><b>What to do →</b> ${cat.action.en}</div>`;
-  }
-  if(d.explanation && d.explanation.length){
-    h += `<div class="exp"><b style="color:var(--ink)">Signals detected:</b><ul>` +
-      d.explanation.slice(0,4).map(e=>`<li>${e}</li>`).join('') + `</ul></div>`;
-  }
-  h += `<div class="a11y"><div class="lbl">Delivered for: ${acc.profile || 'default'}</div>` +
-       (acc.shape ? `<div style="font-size:15px;margin:5px 0"><b>${acc.shape} ${acc.shape_word}</b></div>`:'') +
-       (acc.speech ? `<div>🔊 <i>“${acc.speech.slice(0,110)}…”</i></div>`:'') +
-       (acc.easy   ? `<div>📖 ${acc.easy}</div>`:'') +
-       (acc.haptic && acc.haptic!=='none' ? `<div>📳 haptic: ${acc.haptic}</div>`:'') +
-       (acc.earcon ? `<div>🎵 earcon: ${acc.earcon}</div>`:'') +
-       `<div>📞 ${(acc.call_person||{}).prompt || 'Call someone you trust'}</div></div>`;
+  const V={HIGH_RISK:{c:'v-red',m:'⛔',t:'DANGER — likely scam'},
+           UNCERTAIN:{c:'v-amber',m:'⚠',t:'BE CAREFUL — verify first'},
+           NO_PATTERN:{c:'v-green',m:'✓',t:'No scam pattern found'}}[d.verdict];
+  const cat=d.category, acc=d.accessible||{}, p=(d.meter||{}).pressures||{};
 
-  const c = d.committee || {}, rc = d.receipt || {};
-  h += `<div class="kv" style="margin-top:11px">
-        <span class="pill">rules: ${c.rules}</span>
-        <span class="pill">model: ${c.ml}</span>
-        <span class="pill">p=${c.ml_prob}</span></div>
-        <div class="mono" style="margin-top:7px">receipt ${rc.receipt_id||'—'} · warned=${rc.warned} · content-free (hash only)</div>`;
+  document.getElementById('verdict').innerHTML=
+    `<div class="verdict ${V.c}"><div class="vmark">${V.m}</div><div>
+       <div class="vttl">${V.t}</div>
+       <div class="vsub">${cat? cat.icon+' '+cat.name : 'Nothing suspicious found in this message.'}</div>
+     </div></div>`;
 
-  document.getElementById('out').innerHTML = h;
-  drawMeter((d.meter||{}).pressures || {});
+  // coercion arc — stages light up from the live meter
+  const vals=STAGES.map(s=>p[s]||0), peak=Math.max(...vals);
+  document.getElementById('arc').innerHTML=STAGES.map((s,i)=>{
+    const v=vals[i], cls=v>=75?'stage hit peak':(v>0?'stage hit':'stage');
+    return `<div class="${cls}"><div class="dot">${v>0?(i+1):''}</div>
+            <div class="sname">${SHORT[s]}</div></div>`;}).join('');
+
+  // meter with staggered fill
+  document.getElementById('meter').innerHTML=STAGES.map(s=>{
+    const v=p[s]||0, c=v>=75?'var(--red)':v>=40?'var(--amber)':'var(--teal)';
+    return `<div class="mrow"><div class="mlab">${s}</div>
+      <div class="mtrack"><div class="mfill" data-w="${v}" style="background:${c}"></div></div>
+      <div class="mnum">${v}</div></div>`;}).join('');
+  document.querySelectorAll('.mfill').forEach((el,i)=>
+    setTimeout(()=>el.style.width=el.dataset.w+'%', 70*i));
+
+  let h='';
+  if(cat){ h+=`<div class="type">${cat.icon} ${cat.name}</div>
+               <div class="why">${cat.why}</div>
+               <div class="advice"><b>What to do &rarr;</b> ${cat.action.en}</div>`; }
+  else   { h+=`<div class="type">✓ Looks ordinary</div>
+               <div class="why">No coercion pattern detected. The system still never certifies a call as safe — it only reports that it found nothing.</div>`; }
+
+  h+=`<div class="a11y"><div class="h">Delivered for: ${acc.profile||'default'}</div><div class="ln">`;
+  if(acc.shape)  h+=`<div style="font-size:15px;margin-bottom:4px"><b>${acc.shape} ${acc.shape_word}</b></div>`;
+  if(acc.speech) h+=`<div>&#128264; <i>"${acc.speech.slice(0,96)}..."</i></div>`;
+  if(acc.easy)   h+=`<div>&#128214; ${acc.easy}</div>`;
+  if(acc.earcon) h+=`<div>&#127925; earcon: ${acc.earcon}</div>`;
+  if(acc.haptic && acc.haptic!=='none') h+=`<div>&#128243; haptic: ${acc.haptic}</div>`;
+  h+=`<div>&#128222; ${(acc.call_person||{}).prompt||'Call someone you trust'}</div></div></div>`;
+
+  const c=d.committee||{}, rc=d.receipt||{};
+  h+=`<div class="foot">
+        <span class="pill">rules <b>${c.rules}</b></span>
+        <span class="pill">model <b>${c.ml}</b></span>
+        <span class="pill">p <b>${c.ml_prob}</b></span>
+        <span class="seal">receipt ${(rc.receipt_id||'').slice(0,10)} &middot; content-free</span>
+      </div>`;
+  document.getElementById('detail').innerHTML=h;
 }
 </script>
 </html>
