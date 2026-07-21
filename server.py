@@ -95,7 +95,14 @@ async def observe_and_limit(request: Request, call_next):
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Referrer-Policy"] = "no-referrer"
-    response.headers["Content-Security-Policy"] = "default-src 'none'; frame-ancestors 'none'"
+    # Strict, but the demo UI is a single self-contained page whose styles and
+    # script are inline, so those must be permitted. Still no external origins,
+    # no framing, and no plugin/object content.
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; style-src 'self' 'unsafe-inline'; "
+        "script-src 'self' 'unsafe-inline'; img-src 'self' data:; "
+        "connect-src 'self'; object-src 'none'; base-uri 'none'; "
+        "frame-ancestors 'none'")
     response.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains"
     if path not in _INFRA_PATHS:
         log_event(logger, "request", request_id=rid, method=request.method,
