@@ -1,41 +1,48 @@
 <meta charset="utf-8">
 <title>DhvaniShield — ET AI Hackathon 2026</title>
 <style>
-  @page { size:A4; margin:14mm 13mm; }
-  *{ box-sizing:border-box; }
+  @page { size:A4; margin:15mm 14mm; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
   body{ font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-        color:#1a2332; line-height:1.5; font-size:10pt; margin:0; }
-  h2{ font-size:13pt; margin:20px 0 7px; color:#0F2E4C; letter-spacing:-.2px;
-      page-break-after:avoid; border-bottom:2.5px solid #0F2E4C; padding-bottom:4px; }
-  h2 span{ color:#0E7C86; font-weight:700; margin-right:6px; }
-  h3{ font-size:10.5pt; margin:13px 0 4px; color:#0E7C86; page-break-after:avoid; }
-  p{ margin:6px 0; }
-  ul,ol{ margin:6px 0 10px; padding-left:18px; } li{ margin:4px 0; }
-  table{ border-collapse:collapse; width:100%; margin:8px 0 12px; font-size:9pt;
+        color:#1a2332; line-height:1.5; font-size:10pt; orphans:3; widows:3; }
+
+  /* ---- one consistent vertical rhythm ---- */
+  h2{ font-size:13pt; color:#0F2E4C; letter-spacing:-.2px; font-weight:700;
+      margin:16px 0 8px; padding-bottom:4px; border-bottom:2.5px solid #0F2E4C;
+      page-break-after:avoid; }
+  h2:first-of-type{ margin-top:14px; }
+  h2 span{ color:#0E7C86; margin-right:7px; }
+  h3{ font-size:10.5pt; color:#0E7C86; margin:10px 0 5px; page-break-after:avoid; }
+  p{ margin:0 0 8px; }
+  p:last-child{ margin-bottom:0; }
+  ul,ol{ margin:0 0 8px; padding-left:19px; }
+  li{ margin:0 0 4px; }
+  svg{ display:block; width:100%; margin:10px 0; page-break-inside:avoid; }
+  svg:first-child{ margin-top:0; }
+  table{ border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt;
          page-break-inside:avoid; }
   th{ color:#0F2E4C; padding:6px 8px; text-align:left; font-weight:700;
-      border-bottom:2px solid #0F2E4C; border-top:1px solid #0F2E4C; }
+      border-top:1px solid #0F2E4C; border-bottom:2px solid #0F2E4C; }
   td{ border-bottom:1px solid #d5dee7; padding:6px 8px; vertical-align:top; }
+  pre{ border:1px solid #b9c6d3; border-left:4px solid #0F2E4C; color:#1a2332;
+       padding:10px 12px; font-family:Consolas,monospace; font-size:8.5pt;
+       white-space:pre-wrap; line-height:1.45; margin:10px 0; page-break-inside:avoid; }
   code{ font-family:Consolas,monospace; font-size:8.5pt; color:#0F2E4C;
         border:1px solid #d5dee7; padding:0 3px; border-radius:2px; }
-  pre{ border:1px solid #b9c6d3; border-left:4px solid #0F2E4C; color:#1a2332;
-       padding:9px 12px; font-family:Consolas,monospace; font-size:8.5pt;
-       white-space:pre-wrap; page-break-inside:avoid; margin:8px 0; }
-  .callout{ border:1px solid #0E7C86; border-left:5px solid #0E7C86; padding:9px 13px;
-            margin:12px 0; page-break-inside:avoid; }
-  .honest{ border:1px solid #C1440E; border-left:5px solid #C1440E; padding:9px 13px;
-           margin:12px 0; page-break-inside:avoid; font-size:9.5pt; }
-  .pb{ page-break-before:always; }
+  .callout{ border:1px solid #0E7C86; border-left:5px solid #0E7C86;
+            padding:10px 13px; margin:10px 0; page-break-inside:avoid; }
+  .honest{ border:1px solid #C1440E; border-left:5px solid #C1440E;
+           padding:10px 13px; margin:10px 0; font-size:9.5pt; page-break-inside:avoid; }
   .lede{ font-size:10.5pt; color:#37505e; }
-  .two{ display:flex; gap:16px; page-break-inside:avoid; }
-  .two>div{ flex:1; }
-  .cap{ font-size:8pt; color:#7a8796; margin:0 0 10px; font-style:italic; }
-  footer{ margin-top:20px; border-top:1px solid #d5dee7; padding-top:7px;
-          font-size:8pt; color:#7a8796; }
+  .two{ display:flex; gap:18px; margin:0 0 8px; page-break-inside:avoid; }
+  .two>div{ flex:1; min-width:0; }
+  .two h3{ margin-top:0; }
+  .cap{ font-size:8pt; color:#7a8796; font-style:italic; margin:-4px 0 10px; }
+  footer{ margin-top:16px; border-top:1px solid #d5dee7; padding-top:8px;
+          font-size:8pt; color:#7a8796; line-height:1.6; }
 </style>
 
-<!-- COVER -->
-<svg viewBox="0 0 700 124" style="width:100%;display:block">
+<svg viewBox="0 0 700 124">
   <rect width="700" height="124" fill="#0F2E4C"/>
   <rect width="7" height="124" fill="#0E7C86"/>
   <text x="26" y="45" font-family="Segoe UI,Helvetica,Arial" font-size="30" font-weight="700" fill="#ffffff">DhvaniShield</text>
@@ -44,24 +51,20 @@
   <text x="26" y="110" font-family="Segoe UI,Helvetica,Arial" font-size="8.5" fill="#7a9bb5">ET AI Hackathon 2026  |  Problem Statement 6: AI for Digital Public Safety  |  Siddhant Damre  |  solo build</text>
 </svg>
 
-<!-- STAT TILES -->
-<svg viewBox="0 0 700 74" style="width:100%;display:block;margin:8px 0 4px">
+<svg viewBox="0 0 700 74">
   <g font-family="Segoe UI,Helvetica,Arial">
     <rect x="0" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
     <text x="84" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">0.02%</text>
     <text x="84" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">false alarm</text>
     <text x="84" y="61" font-size="7.5" fill="#5b6b7c" text-anchor="middle">on 4,827 real messages</text>
-
     <rect x="177" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
     <text x="261" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">98.8%</text>
     <text x="261" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">accuracy</text>
     <text x="261" y="61" font-size="7.5" fill="#5b6b7c" text-anchor="middle">real held-out data</text>
-
     <rect x="354" y="0" width="169" height="74" rx="5" fill="#eef7f8" stroke="#0E7C86" stroke-width="1.2"/>
     <text x="438" y="32" font-size="22" font-weight="700" fill="#0E7C86" text-anchor="middle">6</text>
     <text x="438" y="48" font-size="8.5" font-weight="600" fill="#1a2332" text-anchor="middle">languages</text>
     <text x="438" y="61" font-size="7.5" fill="#5b6b7c" text-anchor="middle">zero missed scams</text>
-
     <rect x="531" y="0" width="169" height="74" rx="5" fill="#0F2E4C"/>
     <text x="615" y="32" font-size="22" font-weight="700" fill="#7fd4dd" text-anchor="middle">22/22</text>
     <text x="615" y="48" font-size="8.5" font-weight="600" fill="#ffffff" text-anchor="middle">test suites passing</text>
@@ -83,7 +86,7 @@ It is a government-flagged, national-scale problem in India.</p>
 <h2><span>02</span>Where it intervenes</h2>
 <p>Scams follow a stable coercion grammar. DhvaniShield tracks that arc and fires
 <strong>before money moves</strong> &mdash; not after.</p>
-<svg viewBox="0 0 700 104" style="width:100%;display:block;margin:4px 0">
+<svg viewBox="0 0 700 104">
   <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
     <line x1="45" y1="46" x2="655" y2="46" stroke="#c8d4e0" stroke-width="2.5"/>
     <g text-anchor="middle">
@@ -103,12 +106,11 @@ It is a government-flagged, national-scale problem in India.</p>
 </svg>
 
 <h2><span>03</span>Architecture</h2>
-<svg viewBox="0 0 700 258" style="width:100%;display:block;margin:4px 0">
+<svg viewBox="0 0 700 258">
   <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
     <rect x="240" y="0" width="220" height="24" rx="4" fill="#ffffff" stroke="#8a99a8"/>
     <text x="350" y="16" text-anchor="middle" fill="#1a2332">call transcript / forwarded message</text>
     <path d="M350 24 L350 38" stroke="#7a8796" stroke-width="1.5"/>
-
     <rect x="10" y="38" width="330" height="112" rx="5" fill="#ffffff" stroke="#0F2E4C" stroke-width="1.3"/>
     <text x="24" y="54" font-weight="700" fill="#0F2E4C">DETECTION COMMITTEE</text>
     <g fill="#37505e">
@@ -120,7 +122,6 @@ It is a government-flagged, national-scale problem in India.</p>
       <rect x="177" y="105" width="153" height="18" rx="3" fill="#f4f7fa" stroke="#c8d4e0"/><text x="184" y="117">calibration / defer-to-human</text>
     </g>
     <text x="24" y="140" font-size="7.5" fill="#7a8796" font-style="italic">every verdict traceable to matched words</text>
-
     <rect x="360" y="38" width="330" height="112" rx="5" fill="#ffffff" stroke="#0E7C86" stroke-width="1.3"/>
     <text x="374" y="54" font-weight="700" fill="#0E7C86">MANIPULATION ENGINE</text>
     <text x="374" y="72" fill="#37505e">9 influence strategies (Cialdini + coercion levers):</text>
@@ -130,14 +131,11 @@ It is a government-flagged, national-scale problem in India.</p>
     </g>
     <text x="374" y="122" font-size="8" font-weight="600" fill="#0E7C86">detects the tactic, not the vocabulary</text>
     <text x="374" y="140" font-size="7.5" fill="#7a8796" font-style="italic">generalises to scams it has never seen</text>
-
     <path d="M175 150 L175 168" stroke="#7a8796" stroke-width="1.5"/>
     <path d="M525 150 L525 168" stroke="#7a8796" stroke-width="1.5"/>
-
     <rect x="130" y="168" width="440" height="28" rx="5" fill="#0F2E4C"/>
     <text x="350" y="186" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="9.5">ESCALATE-ONLY SAFETY GATE  -  may only RAISE, never clear</text>
     <path d="M350 196 L350 210" stroke="#7a8796" stroke-width="1.5"/>
-
     <g font-size="8">
       <rect x="10"  y="210" width="163" height="40" rx="4" fill="#ffffff" stroke="#0E7C86"/>
       <text x="91"  y="228" text-anchor="middle" fill="#0F2E4C" font-weight="700">scam category</text>
@@ -154,7 +152,6 @@ It is a government-flagged, national-scale problem in India.</p>
     </g>
   </g>
 </svg>
-
 <div class="callout">
 <strong>The safety invariant.</strong> There is no <code>SAFE</code> class. The output space is
 <code>HIGH_RISK / UNCERTAIN / NO_PATTERN</code>, and learned layers may only <em>escalate</em> &mdash; so
@@ -162,10 +159,10 @@ no model error can ever produce a false "you're safe". A false alarm costs one v
 reassurance costs a life's savings. The asymmetry is built into the architecture.
 </div>
 
-<h2 class="pb"><span>04</span>The Manipulation Meter</h2>
+<h2><span>04</span>The Manipulation Meter</h2>
 <p>Instead of a black-box score, the user sees <em>what is being done to them</em>. Real output for:
 <em>"This is CBI, a case is filed, do not tell anyone, transfer money now."</em></p>
-<svg viewBox="0 0 700 172" style="width:100%;display:block;margin:6px 0">
+<svg viewBox="0 0 700 172">
   <g font-family="Segoe UI,Helvetica,Arial" font-size="9">
     <rect x="0" y="0" width="430" height="172" rx="5" fill="#ffffff" stroke="#b9c6d3"/>
     <g fill="#37505e">
@@ -202,7 +199,7 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
 </svg>
 
 <h2><span>05</span>Results &mdash; every number reproducible</h2>
-<svg viewBox="0 0 700 168" style="width:100%;display:block;margin:4px 0">
+<svg viewBox="0 0 700 168">
   <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
     <text x="0" y="12" font-size="9.5" font-weight="700" fill="#0F2E4C">Detection performance across independent test sets</text>
     <line x1="185" y1="24" x2="185" y2="150" stroke="#8a99a8"/>
@@ -210,15 +207,12 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
       <text x="178" y="41" text-anchor="end">Out-of-distribution recall</text>
       <rect x="185" y="30" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="30" width="470" height="15" rx="2" fill="#0E7C86"/>
       <text x="662" y="41" font-weight="700" fill="#0E7C86">100%</text>
-
       <text x="178" y="70" text-anchor="end">Real held-out accuracy</text>
       <rect x="185" y="59" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="59" width="464" height="15" rx="2" fill="#0E7C86"/>
       <text x="662" y="70" font-weight="700" fill="#0E7C86">98.8%</text>
-
       <text x="178" y="99" text-anchor="end">Red-team recall (evasion)</text>
       <rect x="185" y="88" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="88" width="441" height="15" rx="2" fill="#0F2E4C"/>
       <text x="662" y="99" font-weight="700" fill="#0F2E4C">93.8%</text>
-
       <text x="178" y="128" text-anchor="end">False alarm (lower is better)</text>
       <rect x="185" y="117" width="470" height="15" rx="2" fill="#eef2f6"/><rect x="185" y="117" width="3" height="15" rx="1.5" fill="#C1440E"/>
       <text x="662" y="128" font-weight="700" fill="#C1440E">0.02%</text>
@@ -226,8 +220,7 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
     <text x="185" y="162" font-size="7.5" fill="#7a8796">Bars scaled 0-100%. False alarm measured on 4,827 real legitimate messages.</text>
   </g>
 </svg>
-
-<svg viewBox="0 0 700 196" style="width:100%;display:block;margin:10px 0 2px">
+<svg viewBox="0 0 700 196">
   <g font-family="Segoe UI,Helvetica,Arial" font-size="8.5">
     <text x="0" y="12" font-size="9.5" font-weight="700" fill="#0F2E4C">Risk-coverage curve: the model knows when to defer to a human</text>
     <line x1="60" y1="30" x2="60" y2="150" stroke="#8a99a8"/>
@@ -256,9 +249,8 @@ reassurance costs a life's savings. The asymmetry is built into the architecture
     <text x="162" y="67" font-size="8" fill="#1a2332">holds error at <tspan font-weight="700" fill="#0E7C86">under 1%</tspan>.</text>
   </g>
 </svg>
-<p class="cap">Measured on real held-out data. Error collapses once the model is allowed to abstain on its
+<p class="cap">Measured on real held-out data. Error collapses once the model may abstain on its
 least-confident cases &mdash; the basis of the defer-to-human guarantee.</p>
-
 <table>
 <tr><th style="width:42%">Metric</th><th style="width:26%">Result</th><th>Evidence base</th></tr>
 <tr><td>False alarm on legitimate messages</td><td><strong>0.02%</strong> (1 in 4,827)</td><td>4,827 <em>real</em> messages</td></tr>
@@ -270,7 +262,6 @@ least-confident cases &mdash; the basis of the defer-to-human guarantee.</p>
 <tr><td>Languages with zero false reassurance</td><td><strong>6</strong> (En, Hi, Mr, Ta, Te, Bn)</td><td>multilingual gate</td></tr>
 <tr><td>Latency / throughput</td><td><strong>13 ms</strong> / <strong>143 req/s</strong></td><td>single CPU node, load-tested</td></tr>
 </table>
-
 <div class="honest">
 <strong>Reported honestly.</strong> The manipulation engine scores <strong>AUC 0.66 on real data</strong>
 versus 0.94 on a hand-authored probe &mdash; the gap is disclosed, not hidden, because self-written probes
@@ -278,7 +269,7 @@ overstate performance and 0.66 is the number we defend. The system is validated 
 not live <em>phone calls</em>; that needs a field pilot, stated as the next step rather than implied as done.
 </div>
 
-<h2 class="pb"><span>06</span>What makes it different</h2>
+<h2><span>06</span>What makes it different</h2>
 <table>
 <tr><th style="width:24%">Axis</th><th style="width:36%">Caller-ID tools (Truecaller etc.)</th><th>DhvaniShield</th></tr>
 <tr><td><strong>What it reads</strong></td><td>the phone number's reputation</td><td>the manipulation technique in the words</td></tr>
@@ -366,19 +357,14 @@ for them <em>first</em>. That is distributive justice encoded as engineering.</p
 </div>
 
 <h2><span>11</span>Run it yourself</h2>
-<pre>git clone &lt;repository-url&gt;
-cd dhvanishield_v6_deploy_1
+<pre>git clone https://github.com/Siddhantdamre/dhvanishield.git
+cd dhvanishield
 pip install -r requirements.txt
 set PYTHONUTF8=1
 
 python tests/run_all.py          # 22 suites - all must pass
 
-python check.py "This is CBI, you are under digital arrest, transfer money now"
-python check.py --ambient "Hi, your delivery is scheduled for Friday"        # stays silent
-python check.py --ambient --profile=blind "This is CBI, transfer money now"  # accessibility
-
-uvicorn server:app --port 8000   # /v1/check  /v1/screen  /v1/analyze  /v1/manipulation</pre>
-
+uvicorn server:app --port 8000   # then open http://127.0.0.1:8000 for the live interface</pre>
 <div class="callout">
 <strong>Why this matters.</strong> It is not a better spam filter. It is a second opinion that reaches the
 person who needs it, at the moment they need it, in the language they speak, through the sense they can
