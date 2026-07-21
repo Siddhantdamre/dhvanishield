@@ -38,11 +38,12 @@ say under pressure. `[BRACKETS]` = what to do, not what to say.
 > manipulation happening in the words. Because the number changes every day, but
 > the coercion script never does."
 
-*[Show the timeline graphic on your slide, or say it while the browser loads.]*
+*[Point at the row of six stage dots across the top of the screen.]*
 
 > "Every one of these scams follows the same six steps. Authority. Accusation.
-> Isolation. Urgency. Then money. We detect the pattern and fire the warning
-> *before* the money moves."
+> Isolation. Urgency. Then money. Those six lights across the top are those
+> steps — watch them come on as I run this. We fire the warning *before* the
+> money moves."
 
 ---
 
@@ -50,30 +51,43 @@ say under pressure. `[BRACKETS]` = what to do, not what to say.
 
 *[Switch to the browser at 127.0.0.1:8000]*
 
-> "This is the working system. Let me show you four things."
+> "This is the working system. The examples on the left are real scams. The ones
+> on the right are ordinary, legitimate messages. Let me show you four things."
 
-**[Click "Normal delivery"]**
+**[Click "Delivery"]** *(right-hand column, under Legitimate)*
 > "First — an ordinary message. Your furniture is arriving Friday. Green. The
-> meter is flat. It says nothing. That matters, because a tool that cries wolf
-> gets switched off, and then it protects nobody."
+> meter is flat, the six lights stay dark. It says nothing. That matters,
+> because a tool that cries wolf gets switched off, and then it protects nobody."
 
-**[Click "Digital arrest"]**
-> "Now the scam call. Red immediately. And look at the meter — it is not just
-> saying 'scam'. It is showing her *what is being done to her mind*. Authority.
-> Accusation. Isolation is maxed out, because he told her not to tell anyone.
-> And it gives one clear instruction: hang up, no police arrests you by phone,
-> call 1930."
+**[Click "Your OTP"]** *(still under Legitimate)*
+> "Here's the harder version of that. A real OTP from your bank — the exact
+> words a scam would also use. Still silent. Because it isn't the word 'OTP'
+> that's dangerous. It's someone *asking you to read it out.*"
 
-**[Click "Sextortion"]**
-> "A different scam gets *different* advice. Here it says: do not pay, keep the
-> evidence, and this is not your fault. That last sentence matters — shame is
-> why people don't report these."
+**[Click "Digital arrest"]** *(left-hand column)*
+> "Now the scam call. Red immediately — and look at the top. Three lights:
+> authority, isolation, financial pull. That is the exact anatomy of a digital
+> arrest. He claims to be the police. He cuts her off from anyone who could
+> help. He moves her money. It is not just saying 'scam' — it is showing her
+> *what is being done to her mind*. And it gives one clear instruction: hang up,
+> no police arrests you by phone, call 1930."
 
 **[Click "Tamil scam"]**
-> "Same scam, written in Tamil. Still caught. Six languages, and in every one of
-> them the system is never allowed to miss a scam."
+> "Same scam, written in Tamil. Still caught — and look, isolation has gone to
+> full red here, because that message leans on it even harder. Six languages,
+> and in every one of them the system is never allowed to miss a scam."
 
-**[Change dropdown to "Blind / low-vision", click Digital arrest again]**
+**[Click "Sextortion"]**
+> "Now watch this one — it comes back *amber*, not red. Only one pressure fires.
+> The system is telling you it is not confident enough to call this a scam
+> outright, so it says 'verify first' instead of guessing.
+>
+> That is deliberate. It would rather admit uncertainty than be confidently
+> wrong. And it still gives the right advice: do not pay, keep the evidence,
+> and this is not your fault. That last line matters — shame is why people
+> don't report these."
+
+**[Change the profile dropdown to "Blind / low-vision", click Digital arrest again]**
 > "And this is the part I care about most. Same alert, delivered as a spoken
 > script with an audio cue — for a blind user. Switch it to deaf, and it becomes
 > a vibration pattern instead. The people scammers target most are the people
@@ -134,8 +148,8 @@ say under pressure. `[BRACKETS]` = what to do, not what to say.
 ---
 
 ## If you only get 90 seconds
-Hook (0:00–0:30) → click **Normal delivery**, then **Digital arrest** → the
-0.02% / 98.8% numbers → the honest close. Skip everything else.
+Hook (0:00–0:30) → click **Delivery**, then **Digital arrest** (point at the six
+lights) → the 0.02% / 98.8% numbers → the honest close. Skip everything else.
 
 ## Three questions you will probably get
 
@@ -148,6 +162,14 @@ Hook (0:00–0:30) → click **Normal delivery**, then **Digital arrest** → th
 > "Real. Four thousand eight hundred and twenty-seven genuine messages, held out.
 > The synthetic data was for training the pattern layer; the headline numbers are
 > all measured on real data, and I separate the two clearly in the document."
+
+**"Why did the sextortion one only come back amber, not red?"** ← they will ask
+> "Because only one pressure fired — urgency. There's no fake authority and no
+> isolation in that message, so the evidence genuinely is thinner. The system is
+> built to abstain rather than over-claim, and amber still routes the user to
+> the right advice. I'd rather it say 'I'm not sure, verify first' than teach
+> people to trust a red light it hasn't earned. The design rule is that it can
+> never say *safe* — amber and red both protect you; only a false green hurts."
 
 **"What happens if the scammer changes their script?"**
 > "That's exactly why we detect strategy instead of keywords. We tested it on
