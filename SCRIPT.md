@@ -38,12 +38,13 @@ say under pressure. `[BRACKETS]` = what to do, not what to say.
 > manipulation happening in the words. Because the number changes every day, but
 > the coercion script never does."
 
-*[Point at the row of six stage dots across the top of the screen.]*
+*[Say this over the idle screen — do NOT point at the page yet, the stage
+lights only appear after the first Analyse.]*
 
 > "Every one of these scams follows the same six steps. Authority. Accusation.
-> Isolation. Urgency. Then money. Those six lights across the top are those
-> steps — watch them come on as I run this. We fire the warning *before* the
-> money moves."
+> Isolation. Urgency. Then money. In a moment you'll see those six steps light
+> up on screen as the system reads them. We fire the warning *before* the money
+> moves."
 
 ---
 
